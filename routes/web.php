@@ -23,26 +23,34 @@ use Inertia\Inertia;
 */
 
 // Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
+    //     return Inertia::render('Welcome', [
+        //         'canLogin' => Route::has('login'),
 //         'canRegister' => Route::has('register'),
 //         'laravelVersion' => Application::VERSION,
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
 
-Route::get('/', [homeController::class, 'index']);
-
-Route::get('/login', [loginController::class, 'index']);
-Route::post('/login', [loginController::class, 'login']);
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [loginController::class, 'index'])->name('login');
+    Route::post('/login', [loginController::class, 'login']);
+});
 Route::get('/logout', [loginController::class, 'logout']);
 
-Route::get('/rencana', [rencanaController::class, 'index']);
-Route::get('/rencana/tambah-rencana', [rencanaController::class, 'create']);
-Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('/', [homeController::class, 'index']);
+    
+    Route::get('/rencana', [rencanaController::class, 'index']);
+    Route::get('/rencana/tambah-rencana', [rencanaController::class, 'create']);
+    Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
+    Route::get('/ruangan', [ruanganController::class, 'index']);
+
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 
-Route::get('/ruangan', [ruanganController::class, 'index']);
 
 Route::get('/tes', function () {
     $testing = Rencana::latest()->get();
@@ -58,14 +66,11 @@ Route::get('/tes', function () {
     // return response()->json($testing);
 });
 
+
+
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 require __DIR__ . '/auth.php';

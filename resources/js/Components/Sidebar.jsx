@@ -7,7 +7,7 @@ const Sidebar = ({ color, title }) => {
   const ruangan = `grid justify-center ${title == "Ruangan" ? "border-r-4 border-black" : "" }  hover:border-r-4 hover:border-black py-2`
 
   return (
-    <div className="w-[110px] h-screen bg-base-300 md:block hidden">
+    <div className="w-[110px] h-screen sticky top-0 bg-base-300 md:block hidden z-50">
       <div className="flex justify-between flex-col h-screen pt-28">
         <ul className="flex-col">
           <li className="h-28">

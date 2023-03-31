@@ -1,6 +1,9 @@
+import { Link } from "@inertiajs/react"
+
 const Navbar = ({ darkMode }) => {
   return (
-    <div className="navbar sticky top-0 border-b-2 bg-base-100 z-20">
+    // <div className="navbar md:w-screen sticky top-0 border-b-2 bg-base-100 z-20 lg:-ml-[1%] md:-ml-[4%] xl:pr-[15%] lg:pr-[20%] md:pr-[23%]">
+    <div className="navbar sticky top-0 border-b-2 bg-base-100 z-20 ">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">RuangPlan</a>
       </div>
@@ -24,7 +27,7 @@ const Navbar = ({ darkMode }) => {
               </a>
             </li>
             <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
+            <li><Link href="/logout">Logout</Link></li>
           </ul>
         </div>
       </div>

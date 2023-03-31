@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 
 const Login = (props) => {
-  console.log(props)
+  // console.log(props)
   const [nis, setNis] = useState('')
   const [password, setPassword] = useState('')
 

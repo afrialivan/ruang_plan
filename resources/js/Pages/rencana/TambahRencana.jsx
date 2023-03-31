@@ -20,15 +20,13 @@ const TambahRencana = (props) => {
     Inertia.post('/rencana/tambah-rencana', data)
   }
 
-  // console.log(props.rencana);
-
   return (
     <div data-theme={mode} className="h-100">
       <div className="grid grid-cols-12">
         <div className="col-start-1 row-span-1">
           <Sidebar color={color} title={props.title} />
         </div>
-        <div className="lg:-mr-20" style={{ gridColumn: '2/12' }}>
+        <div className="xl:ml-[1%] lg:ml-[4%] md:ml-[10%] lg:-mr-[6%] md:-mr-[4%]" style={{ gridColumn: '2/12' }}>
           <Navbar darkMode={() => darkMode()} />
           <div className="py-10">
 
