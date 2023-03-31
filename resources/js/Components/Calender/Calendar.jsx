@@ -18,8 +18,9 @@ const Calendar = (props) => {
       {
         id: createEventId(),
         title: plan.judul,
-        start: plan.tanggal + 'T05:00:00',
-        end: '2023-03-30T09:00:00'
+        start: plan.tanggal
+        // start: plan.tanggal + 'T05:00:00',
+        // end: '2023-03-30T09:00:00'
       }
     )
   })
@@ -66,9 +67,6 @@ const Calendar = (props) => {
   const handleDateSelect = (selectInfo) => {
     let title = prompt('Please enter a new title for your event')
     let calendarApi = selectInfo.view.calendar
-    console.log('start: ', selectInfo.startStr)
-    console.log('end: ', selectInfo.endStr)
-    console.log('all day: ',selectInfo.allDay)
 
     calendarApi.unselect() // clear date selection
 
@@ -128,13 +126,13 @@ const Calendar = (props) => {
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
           }}
           initialView='dayGridMonth'
-          editable={true}
-          selectable={true}
+          // editable={true}
+          // selectable={true}
           selectMirror={true}
           dayMaxEvents={true}
           weekends={weekendsVisible}
           initialEvents={udin} // alternatively, use the `events` setting to fetch from a feed
-          select={handleDateSelect}
+          // select={handleDateSelect}
           eventContent={renderEventContent} // custom render function
           eventClick={handleEventClick}
           eventsSet={handleEvents} // called after events are initialized/added/changed/removed

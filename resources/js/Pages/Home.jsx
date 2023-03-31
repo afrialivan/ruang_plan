@@ -42,7 +42,7 @@ const Home = (props) => {
               <div className="w-100 md:col-span-7 h-[630px] bg-base-200 rounded-lg shadow-lg px-5 py-4">
                 <h4 className="font-bold text-xl">Kegiatan Yang Akan Datang</h4>
                 <div className="flex flex-col gap-3 mt-3">
-                  {props.plans.map((plan, index) => {
+                  {props.plans.slice(0, 5).map((plan, index) => {
                     return (
                       // console.log(plan.judul)
                       <Plans key={index} plan={plan} />

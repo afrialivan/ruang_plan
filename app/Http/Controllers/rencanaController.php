@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rencana;
+use App\Models\Ruangan;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +14,7 @@ class rencanaController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Rencana', [
+        return Inertia::render('rencana/Rencana', [
             'title' => 'Rencana'
         ]);
     }
@@ -22,7 +24,11 @@ class rencanaController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('rencana/TambahRencana', [
+            'title' => 'Rencana',
+            'ruangan' => Ruangan::all(),
+            'rencana' => Rencana::latest()->get()
+        ]);
     }
 
     /**
@@ -30,7 +36,12 @@ class rencanaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Rencana::create([
+            'judul' => $request->judul,
+            'tanggal' => $request->tanggal,
+            'id_user' => $request->idUser,
+            'id_ruangan' => $request->ruangan
+        ]);
     }
 
     /**

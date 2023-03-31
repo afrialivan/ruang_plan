@@ -19,13 +19,19 @@ const Rencana = (props) => {
             <Sidebar color={color} title={props.title} />
           </div>
           <div className="lg:-mr-20" style={{ gridColumn: '2/12' }}>
-            {/* <div className="col-span-12 lg:mr-10 mr-5 ml-2 md:-ml-3 lg:-ml-7 xl:-ml-36"> */}
             <Navbar darkMode={() => darkMode()} />
             <div className="py-10">
               <h4>title: {props.title} </h4>
-              <Link href="tes">
-                tes
-              </Link>
+              <div>
+                <Link href="/rencana/tambah-rencana">
+                  Tambah Rencana
+                </Link>
+              </div>
+              <div>
+                <Link href="/tes">
+                  tes
+                </Link>
+              </div>
             </div>
           </div>
         </div>

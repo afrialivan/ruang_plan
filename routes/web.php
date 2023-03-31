@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\rencanaController;
 use App\Http\Controllers\ruanganController;
@@ -32,7 +33,15 @@ use Inertia\Inertia;
 
 Route::get('/', [homeController::class, 'index']);
 
+Route::get('/login', [loginController::class, 'index']);
+Route::post('/login', [loginController::class, 'login']);
+Route::get('/logout', [loginController::class, 'logout']);
+
 Route::get('/rencana', [rencanaController::class, 'index']);
+Route::get('/rencana/tambah-rencana', [rencanaController::class, 'create']);
+Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
+
+
 Route::get('/ruangan', [ruanganController::class, 'index']);
 
 Route::get('/tes', function () {

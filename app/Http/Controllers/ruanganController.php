@@ -12,7 +12,7 @@ class ruanganController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Ruangan', [
+        return Inertia::render('ruangan/Ruangan', [
             'title' => 'Ruangan'
         ]);
     }

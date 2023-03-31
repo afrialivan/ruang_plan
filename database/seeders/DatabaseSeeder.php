@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Rencana;
 use App\Models\Ruangan;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,31 +23,42 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        User::create([
+            'name' => 'afrial',
+            'nis' => '544201199',
+            'password' => bcrypt('111')
+        ]);
+
         Rencana::create([
+            'id_user' => 1,
             'judul' => 'Buka Puasa Bersama',
             'id_ruangan' => 1,
             'tanggal' => '2023-03-31',
             'status_rencana' => 'proses'
         ]);
         Rencana::create([
+            'id_user' => 1,
             'judul' => 'Penamatan',
             'id_ruangan' => 5,
             'tanggal' => '2023-04-01',
             'status_rencana' => 'selesai'
         ]);
         Rencana::create([
+            'id_user' => 1,
             'judul' => 'Ukk RPL',
             'id_ruangan' => 2,
             'tanggal' => '2023-04-01',
             'status_rencana' => 'belum'
         ]);
         Rencana::create([
+            'id_user' => 1,
             'judul' => 'Rapat Osis',
             'id_ruangan' => 3,
             'tanggal' => '2023-03-30',
             'status_rencana' => 'belum'
         ]);
         Rencana::create([
+            'id_user' => 1,
             'judul' => 'Sosialisasi',
             'id_ruangan' => 4,
             'tanggal' => '2023-03-31',

@@ -18,7 +18,7 @@ module.exports = {
     },
     
     daisyui: {
-        themes: ["forest", "emerald"],
+        themes: ["light", "forest", "emerald"],
       },
 
     plugins: [require('@tailwindcss/forms'), require('daisyui')],
