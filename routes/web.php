@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,13 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/dashboard/home', [dashboardController::class, 'index']);
+Route::get('/dashboard/konfirmasi-kegiatan', [dashboardController::class, 'edit']);
+Route::post('/dashboard/konfirmasi-kegiatan', [dashboardController::class, 'update']);
+Route::get('/dashboard/users', [dashboardController::class, 'users']);
+Route::get('/dashboard/users/tambah-user', [dashboardController::class, 'create_user']);
+Route::post('/dashboard/users/tambah-users', [dashboardController::class, 'store_users']);
+Route::post('/dashboard/users/tambah-user', [dashboardController::class, 'store_user']);
 
 
 Route::get('/tes', function () {

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('id_user');
             $table->foreignId('id_ruangan');
             $table->enum('kategori', ['siswa', 'guru', 'osis', 'semua'])->default('semua');
-            $table->enum('status_rencana', ['belum', 'proses', 'selesai']);
+            $table->enum('status_rencana', ['belum', 'proses', 'selesai', 'tolak']);
             $table->timestamps();
         });
     }

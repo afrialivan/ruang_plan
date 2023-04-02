@@ -29,6 +29,7 @@
         "daisyui": "^2.51.5",
         "react-redux": "^8.0.5",
         "redux": "^4.2.1",
-        "styled-components": "^5.3.9"
+        "styled-components": "^5.3.9",
+        "xlsx": "^0.18.5"
     }
 }
