@@ -54,6 +54,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard/home', [dashboardController::class, 'index']);
 Route::get('/dashboard/konfirmasi-kegiatan', [dashboardController::class, 'edit']);
 Route::post('/dashboard/konfirmasi-kegiatan', [dashboardController::class, 'update']);
+Route::post('/dashboard/tolak-kegiatan', [dashboardController::class, 'tolak']);
+Route::post('/dashboard/hapus-kegiatan', [dashboardController::class, 'hapus']);
 Route::get('/dashboard/users', [dashboardController::class, 'users']);
 Route::get('/dashboard/users/tambah-user', [dashboardController::class, 'create_user']);
 Route::post('/dashboard/users/tambah-users', [dashboardController::class, 'store_users']);

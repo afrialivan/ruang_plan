@@ -112,6 +112,26 @@ class dashboardController extends Controller
             ]
         );
     }
+    public function tolak(Request $request)
+    {
+        $rencana = Rencana::where('id', $request->id)->get();
+        // dd($rencana);
+        Rencana::where('id', $request->id)->update(
+            [
+                'judul' => $rencana[0]->judul,
+                'tanggal' => $rencana[0]->tanggal,
+                'id_user' => $rencana[0]->id_user,
+                'id_ruangan' => $rencana[0]->id_ruangan,
+                'kategori' => $rencana[0]->kategori,
+                'status_rencana' => 'tolak',
+            ]
+        );
+    }
+    public function hapus(Request $request)
+    {
+        // dd($request->id);
+        Rencana::destroy($request->id);
+    }
 
     /**
      * Remove the specified resource from storage.

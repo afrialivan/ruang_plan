@@ -12,6 +12,18 @@ const Kegiatan = (props) => {
     Inertia.post('/dashboard/konfirmasi-kegiatan', idKegiatan)
   }
 
+  const tolakKegiatan = (id) => {
+    console.log(id);
+    const idKegiatan = { id }
+    Inertia.post('/dashboard/tolak-kegiatan', idKegiatan)
+  }
+
+  const hapusKegiatan = (id) => {
+    console.log(id);
+    const idKegiatan = { id }
+    Inertia.post('/dashboard/hapus-kegiatan', idKegiatan)
+  }
+
   return (
     <div>
       <Link href='/dashboard/home' >back</Link>
@@ -21,8 +33,15 @@ const Kegiatan = (props) => {
             <p>{rencana.name}</p>
             <p>{rencana.judul}</p>
             <p>{rencana.tanggal}</p>
-            <button onClick={() => konfirmasiKegiatan(rencana.id)}>Konfirmasi</button>
-            <button onClick={() => konfirmasiKegiatan(rencana.id)}>hapus</button>
+            <div>
+              <button onClick={() => konfirmasiKegiatan(rencana.id)}>Konfirmasi</button>
+            </div>
+            <div>
+              <button onClick={() => tolakKegiatan(rencana.id)}>tolak</button>
+            </div>
+            <div>
+              <button onClick={() => hapusKegiatan(rencana.id)}>hapus</button>
+            </div>
           </div>
         )
       })}
