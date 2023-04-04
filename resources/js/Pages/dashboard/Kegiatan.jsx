@@ -4,8 +4,6 @@ import React from 'react'
 
 const Kegiatan = (props) => {
 
-  // console.log(props);
-
   const konfirmasiKegiatan = (id) => {
     console.log(id);
     const idKegiatan = { id }

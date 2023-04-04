@@ -8,23 +8,29 @@ use Inertia\Inertia;
 
 class loginController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return Inertia::render('Login');
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $validasi = $request->validate([
             'nis' => 'required',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($validasi)) {
+        if (Auth::attempt($validasi)) {
             $request->session()->regenerate();
+            if (auth()->user()->role == 'admin') {
+                return redirect()->intended('/dashboard/home');
+            }
             return redirect()->intended('/');
         }
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->regenerateToken();
         $request->session()->invalidate();

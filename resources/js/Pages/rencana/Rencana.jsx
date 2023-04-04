@@ -11,24 +11,22 @@ const Rencana = (props) => {
   const [color, setColor] = useState('black')
 
   return (
-    <div>
+    <>
       <Head title={props.title} />
-      <div data-theme={mode} className="h-100">
-        <div className="grid grid-cols-12">
-          <div className="col-start-1 row-span-1">
-            <Sidebar color={color} title={props.title} />
-          </div>
-          <div className="xl:ml-[1%] lg:ml-[4%] md:ml-[10%] lg:-mr-[6%] md:-mr-[4%]" style={{ gridColumn: '2/12' }}>
+      <div data-theme={mode} className="flex flex-col">
+        <div className="flex flex-1">
+          <Sidebar color={color} title={props.title} />
+          <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
-            <div className="py-10">
-              <h4>title: {props.title} </h4>
+            <div className="mx-4 mt-4">
+
               <div>
                 <Link href="/rencana/tambah-rencana">
                   Tambah Rencana
                 </Link>
               </div>
               <div>
-                <Link href="/tes">
+                <Link href="tes">
                   tes
                 </Link>
               </div>
@@ -37,7 +35,34 @@ const Rencana = (props) => {
         </div>
         <MobileNav color={color} title={props.title} />
       </div>
-    </div>
+    </>
+    // <div>
+    //   <Head title={props.title} />
+    //   <div data-theme={mode} className="h-100">
+    //     <div className="grid grid-cols-12">
+    //       <div className="col-start-1 row-span-1">
+    //         <Sidebar color={color} title={props.title} />
+    //       </div>
+    //       <div className="xl:ml-[1%] lg:ml-[4%] md:ml-[10%] lg:-mr-[6%] md:-mr-[4%]" style={{ gridColumn: '2/12' }}>
+    //         <Navbar darkMode={() => darkMode()} />
+    //         <div className="py-10">
+    //           <h4>title: {props.title} </h4>
+    //           <div>
+    //             <Link href="/rencana/tambah-rencana">
+    //               Tambah Rencana
+    //             </Link>
+    //           </div>
+    //           <div>
+    //             <Link href="/tes">
+    //               tes
+    //             </Link>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <MobileNav color={color} title={props.title} />
+    //   </div>
+    // </div>
   )
 }
 
