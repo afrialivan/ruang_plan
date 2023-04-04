@@ -29,11 +29,73 @@ const TambahRencana = (props) => {
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
-            <div className="mx-4 mt-4">
+            <div className="mx-4 mt-4 flex flex-1 mb-20 md:mb-0">
+              <div className="bg-slate-200 w-full h-full rounded-lg px-8 pt-5 pb-7">
+                <h2 className="font-bold text-xl md:mb-3">Tambah Kegiatan</h2>
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Nama Kegiatan</label>
+                      <input type="text" className="border-none rounded-lg" placeholder="inputkan nama kegiatan"
+                        value={judul}
+                        onChange={(event) => setJudul(event.target.value)}
+                      />
+                    </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Kategori Kegiatan</label>
+                      <select className="border-none rounded-lg" value={ruangan} onChange={(event) => setRuangan(event.target.value)} >
+                        <option>--</option>
+                        <option value="semua">Semua</option>
+                        <option value="siswa">Siswa</option>
+                        <option value="guru">Guru</option>
+                        <option value="osis">Osis</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Tanggal Kegiatan</label>
+                      <input type="date" className="border-none rounded-lg" placeholder="" />
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-4 md:w-1/2">
+                      <div className="flex flex-col md:w-1/2">
+                        <label htmlFor="">Waktu Mulai</label>
+                        <input type="time" className="border-none rounded-lg" placeholder="" />
+                      </div>
+                      <div className="flex flex-col md:w-1/2">
+                        <label htmlFor="">Waktu Selesai</label>
+                        <input type="time" className="border-none rounded-lg" placeholder="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Pilih Ruangan</label>
+                      <select className="border-none rounded-lg" value={ruangan} onChange={(event) => setRuangan(event.target.value)} >
+                        <option>--</option>
+                        {props.ruangan.map(ruangan => {
+                          return (
+                            <option key={ruangan.id} value={ruangan.id}>{ruangan.nama_ruangan}</option>
+                          )
+                        })}
+                      </select>
+                    </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Penanggung Jawab</label>
+                      <input type="text" className="border-none rounded-lg" placeholder="" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col mb-3">
+                    <label htmlFor="">Deskripsi Kegiatan</label>
+                    <textarea className="w-full border-none rounded-lg" rows="4"></textarea>
+                  </div>
+                  <div className="flex">
+                    <button className="bg-slate-100 w-full rounded-lg px-4 py-3">Tambah Kegiatan</button>
+                  </div>
+                </div>
+              </div>
 
-              {props.rencana.map((ren, index) => <p key={index}>{ren.judul}</p>)}
-
-
+              {/* {props.rencana.map((ren, index) => <p key={index}>{ren.judul}</p>)}
               <label htmlFor="">Judul Kegiatan</label>
               <input type="text"
                 value={judul}
@@ -53,61 +115,14 @@ const TambahRencana = (props) => {
                   )
                 })}
               </select>
-              <button className="bg-slate-200" onClick={() => submitData()}>Submit</button>
+              <button className="bg-slate-200" onClick={() => submitData()}>Submit</button> */}
 
-              <div>
-                <Link href="tes">
-                  tes
-                </Link>
-              </div>
             </div>
           </div>
         </div>
         <MobileNav color={color} title={props.title} />
       </div>
     </>
-    // <div data-theme={mode} className="h-100">
-    //   <div className="grid grid-cols-12">
-    //     <div className="col-start-1 row-span-1">
-    //       <Sidebar color={color} title={props.title} />
-    //     </div>
-    //     <div className="xl:ml-[1%] lg:ml-[4%] md:ml-[10%] lg:-mr-[6%] md:-mr-[4%]" style={{ gridColumn: '2/12' }}>
-    //       <Navbar darkMode={() => darkMode()} />
-    //       <div className="py-10">
-
-    //         {props.rencana.map((ren, index) => <p key={index}>{ren.judul}</p>)}
-
-
-    //           <label htmlFor="">Judul Kegiatan</label>
-    //           <input type="text"
-    //             value={judul}
-    //             onChange={(event) => setJudul(event.target.value)}
-    //           />
-    //           <label htmlFor="">Tanggal Kegiatan</label>
-    //           <input type="datetime-local"
-    //             value={tanggal}
-    //             onChange={(event) => setTanggal(event.target.value)}
-    //           />
-    //           <label htmlFor="">Ruangan Kegiatan</label>
-    //           <select value={ruangan} onChange={(event) => setRuangan(event.target.value)} >
-    //             <option>--</option>
-    //             {props.ruangan.map(ruangan => {
-    //               return (
-    //                 <option key={ruangan.id} value={ruangan.id}>{ruangan.nama_ruangan}</option>
-    //               )
-    //             })}
-    //             {/* <option value="">XII TKJ 1</option>
-    //             <option value="">XII TKJ 2</option> */}
-    //           </select>
-    //           <button className="bg-slate-200" onClick={() => submitData()}>Submit</button>
-
-
-
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <MobileNav color={color} title={props.title} />
-    // </div>
   )
 }
 

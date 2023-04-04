@@ -108,7 +108,7 @@ class dashboardController extends Controller
                 'id_user' => $rencana[0]->id_user,
                 'id_ruangan' => $rencana[0]->id_ruangan,
                 'kategori' => $rencana[0]->kategori,
-                'status_rencana' => 'proses',
+                'status_rencana' => 'belum',
             ]
         );
     }

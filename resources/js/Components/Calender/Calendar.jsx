@@ -13,7 +13,7 @@ const Calendar = (props) => {
     return String(eventGuid++)
   }
   
-  let udin = props.events.map(plan => {
+  let kegiatan = props.events.map(plan => {
     return (
       {
         id: createEventId(),
@@ -25,7 +25,7 @@ const Calendar = (props) => {
     )
   })
 
-  // console.log(udin);
+  // console.log(kegiatan);
   
   // console.log(props.plans.map(plan => 'oi'))
 
@@ -131,7 +131,7 @@ const Calendar = (props) => {
           selectMirror={true}
           dayMaxEvents={true}
           weekends={weekendsVisible}
-          initialEvents={udin} // alternatively, use the `events` setting to fetch from a feed
+          initialEvents={kegiatan} // alternatively, use the `events` setting to fetch from a feed
           // select={handleDateSelect}
           eventContent={renderEventContent} // custom render function
           eventClick={handleEventClick}

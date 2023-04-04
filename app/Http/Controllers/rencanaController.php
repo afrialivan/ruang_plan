@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rencana;
 use App\Models\Ruangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class rencanaController extends Controller
@@ -14,8 +15,14 @@ class rencanaController extends Controller
      */
     public function index()
     {
+        $data = DB::table('rencanas')
+            ->leftJoin('ruangans', 'ruangans.id', '=', 'rencanas.id_ruangan')
+            ->select('rencanas.*', 'ruangans.nama_ruangan')
+            ->latest()
+            ->get();
         return Inertia::render('rencana/Rencana', [
-            'title' => 'Rencana'
+            'title' => 'Rencana',
+            'rencana' => $data
         ]);
     }
 

@@ -77,6 +77,13 @@ class DatabaseSeeder extends Seeder
             'tanggal' => '2023-03-31',
             'status_rencana' => 'proses'
         ]);
+        Rencana::create([
+            'id_user' => 1,
+            'judul' => 'latihan ekskul',
+            'id_ruangan' => 4,
+            'tanggal' => '2023-03-31',
+            'status_rencana' => 'belum_konfirmasi'
+        ]);
 
         Ruangan::create([
             'nama_ruangan' => 'XII RPL',

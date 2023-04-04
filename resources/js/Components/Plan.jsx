@@ -1,10 +1,9 @@
 const Plan = (plan) => {
-  // console.log(plan.plan.ruangan)
   return (
-    <div className="w-100 bg-primary py-2 px-4 rounded-lg text-white">
-      <h4 className="font-bold text-2xl">{plan.plan.judul}</h4>
-      <p className="font-semibold">{plan.plan.tanggal}</p>
-      <p className="">Ruangan: {plan.plan.nama_ruangan}</p>
+    <div className="item bg-white rounded-lg px-2 py-2">
+      <h1 className="font-bold text-lg">{plan.plan.judul}</h1>
+      <p className="text-sm">Ruangan: {plan.plan.nama_ruangan}</p>
+      <p className="text-sm">{plan.plan.tanggal}</p>
     </div>
   )
 }
