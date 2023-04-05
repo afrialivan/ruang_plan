@@ -46,9 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
     Route::get('/ruangan', [ruanganController::class, 'index']);
 
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profil', [ProfileController::class, 'index']);
 });
 
 Route::get('/dashboard/home', [dashboardController::class, 'index']);
@@ -57,6 +55,9 @@ Route::post('/dashboard/konfirmasi-kegiatan', [dashboardController::class, 'upda
 Route::post('/dashboard/tolak-kegiatan', [dashboardController::class, 'tolak']);
 Route::post('/dashboard/hapus-kegiatan', [dashboardController::class, 'hapus']);
 Route::get('/dashboard/users', [dashboardController::class, 'users']);
+Route::get('/dashboard/users/{id}', [dashboardController::class, 'edit_user']);
+Route::post('/dashboard/users/{id}', [dashboardController::class, 'update_user']);
+Route::delete('/dashboard/users/{id}', [dashboardController::class, 'destroy_user']);
 Route::get('/dashboard/users/tambah-user', [dashboardController::class, 'create_user']);
 Route::post('/dashboard/users/tambah-users', [dashboardController::class, 'store_users']);
 Route::post('/dashboard/users/tambah-user', [dashboardController::class, 'store_user']);

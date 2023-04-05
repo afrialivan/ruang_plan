@@ -16,10 +16,24 @@ module.exports = {
             },
         },
     },
-    
+
     daisyui: {
-        themes: ["light", "forest", "emerald"],
-      },
+        themes: [
+            {
+                mytheme: {
+                    primary: "#002B5B",
+                    secondary: "#f6d860",
+                    accent: "#37cdbe",
+                    neutral: "#3d4451",
+                    "base-100": "#fff",
+                },
+            },
+            "light",
+            "forest",
+            "emerald",
+
+        ],
+    },
 
     plugins: [require('@tailwindcss/forms'), require('daisyui')],
 };

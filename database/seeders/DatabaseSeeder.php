@@ -46,42 +46,48 @@ class DatabaseSeeder extends Seeder
             'id_user' => 1,
             'judul' => 'Buka Puasa Bersama',
             'id_ruangan' => 1,
-            'tanggal' => '2023-03-31',
+            'mulai' => '2023-03-31T10:00',
+            'selesai' => '2023-03-31T13:00',
             'status_rencana' => 'proses'
         ]);
         Rencana::create([
             'id_user' => 1,
             'judul' => 'Penamatan',
             'id_ruangan' => 5,
-            'tanggal' => '2023-04-01',
+            'mulai' => '2023-04-01T10:00',
+            'selesai' => '2023-04-01T13:00',
             'status_rencana' => 'selesai'
         ]);
         Rencana::create([
             'id_user' => 1,
             'judul' => 'Ukk RPL',
             'id_ruangan' => 2,
-            'tanggal' => '2023-04-01',
+            'mulai' => '2023-04-01T10:00',
+            'selesai' => '2023-04-01T13:00',
             'status_rencana' => 'belum'
         ]);
         Rencana::create([
             'id_user' => 1,
             'judul' => 'Rapat Osis',
             'id_ruangan' => 3,
-            'tanggal' => '2023-03-30',
+            'mulai' => '2023-03-30T10:00',
+            'selesai' => '2023-03-30T13:00',
             'status_rencana' => 'belum'
         ]);
         Rencana::create([
             'id_user' => 1,
             'judul' => 'Sosialisasi',
             'id_ruangan' => 4,
-            'tanggal' => '2023-03-31',
+            'mulai' => '2023-03-31T10:00',
+            'selesai' => '2023-03-31T13:00',
             'status_rencana' => 'proses'
         ]);
         Rencana::create([
             'id_user' => 1,
             'judul' => 'latihan ekskul',
             'id_ruangan' => 4,
-            'tanggal' => '2023-03-31',
+            'mulai' => '2023-03-31T10:00',
+            'selesai' => '2023-03-31T13:00',
             'status_rencana' => 'belum_konfirmasi'
         ]);
 

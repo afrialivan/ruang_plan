@@ -10,16 +10,21 @@ const TambahRencana = (props) => {
   const [mode, setMode] = useState('emerald')
   const [color, setColor] = useState('black')
   const [judul, setJudul] = useState('')
-  const [tanggal, setTanggal] = useState('')
+  const [mulai, setMulai] = useState('')
+  const [kategori, setkategori] = useState('')
+  const [deskripsi, setDeskripsi] = useState('')
+  const [selesai, setSelesai] = useState('')
   const [ruangan, setRuangan] = useState('')
-  const idUser = props.auth.user.id
+  // const idUser = props.auth.user.id
 
   const submitData = () => {
     const data = {
-      judul, tanggal, ruangan, idUser
+      judul, mulai, selesai, ruangan, kategori, deskripsi
     }
     Inertia.post('/rencana/tambah-rencana', data)
   }
+
+  console.log('2023-04-04t21:24 : ', mulai);
 
   return (
     <>
@@ -43,7 +48,7 @@ const TambahRencana = (props) => {
                     </div>
                     <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Kategori Kegiatan</label>
-                      <select className="border-none rounded-lg" value={ruangan} onChange={(event) => setRuangan(event.target.value)} >
+                      <select className="border-none rounded-lg" value={kategori} onChange={(event) => setkategori(event.target.value)} >
                         <option>--</option>
                         <option value="semua">Semua</option>
                         <option value="siswa">Siswa</option>
@@ -54,18 +59,18 @@ const TambahRencana = (props) => {
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">
                     <div className="flex flex-col md:w-1/2">
-                      <label htmlFor="">Tanggal Kegiatan</label>
-                      <input type="date" className="border-none rounded-lg" placeholder="" />
+                      <label htmlFor="">Tanggal Mulai Kegiatan</label>
+                      <input type="datetime-local" className="border-none rounded-lg" placeholder=""
+                        value={mulai}
+                        onChange={(event) => setMulai(event.target.value)}
+                      />
                     </div>
-                    <div className="flex flex-col md:flex-row gap-4 md:w-1/2">
-                      <div className="flex flex-col md:w-1/2">
-                        <label htmlFor="">Waktu Mulai</label>
-                        <input type="time" className="border-none rounded-lg" placeholder="" />
-                      </div>
-                      <div className="flex flex-col md:w-1/2">
-                        <label htmlFor="">Waktu Selesai</label>
-                        <input type="time" className="border-none rounded-lg" placeholder="" />
-                      </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Tanggal Selesai Kegiatan</label>
+                      <input type="datetime-local" className="border-none rounded-lg" placeholder=""
+                        value={selesai}
+                        onChange={(event) => setSelesai(event.target.value)}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">
@@ -87,10 +92,13 @@ const TambahRencana = (props) => {
                   </div>
                   <div className="flex flex-col mb-3">
                     <label htmlFor="">Deskripsi Kegiatan</label>
-                    <textarea className="w-full border-none rounded-lg" rows="4"></textarea>
+                    <textarea className="w-full border-none rounded-lg" rows="4"
+                      value={deskripsi}
+                      onChange={(event) => setDeskripsi(event.target.value)}
+                    ></textarea>
                   </div>
                   <div className="flex">
-                    <button className="bg-slate-100 w-full rounded-lg px-4 py-3">Tambah Kegiatan</button>
+                    <button className="bg-slate-100 w-full rounded-lg px-4 py-3" onClick={() => submitData()}>Tambah Kegiatan</button>
                   </div>
                 </div>
               </div>

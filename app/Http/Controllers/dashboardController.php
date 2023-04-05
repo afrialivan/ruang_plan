@@ -31,7 +31,7 @@ class dashboardController extends Controller
             'users' => User::latest()->get()
         ]);
     }
-
+    
     public function store_users(Request $request)
     {
         $data = $request->except('_token');
@@ -53,7 +53,33 @@ class dashboardController extends Controller
             'password' => bcrypt($request->password),
         ]);
     }
+    
+    public function edit_user($id)
+    {
+        $data = User::where('id', $id)->get();
+        return Inertia::render('dashboard/users/EditUser', [
+            'user' => $data[0]
+        ]);
+    }
 
+    public function update_user(Request $request)
+    {
+        $data = User::where('id', $request->id)->get();
+        User::where('id', $request->id)->update([
+            'name' => $request->name,
+            'nis' => $request->nis,
+            'role' => $request->role,
+            'password' => $data[0]->password
+        ]);
+
+        return redirect('/dashboard/users');
+    }
+
+    public function destroy_user($id)
+    {
+        User::destroy($id);
+    }
+    
     /**
      * Show the form for creating a new resource.
      */

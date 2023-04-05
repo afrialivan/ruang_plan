@@ -12,21 +12,37 @@ const Calendar = (props) => {
   const createEventId = () => {
     return String(eventGuid++)
   }
+
+  // console.log(props.events);
+  
+  
   
   let kegiatan = props.events.map(plan => {
-    return (
-      {
-        id: createEventId(),
-        title: plan.judul,
-        start: plan.tanggal
-        // start: plan.tanggal + 'T05:00:00',
-        // end: '2023-03-30T09:00:00'
-      }
-    )
+    if (plan.status_rencana !== 'belum_konfirmasi') {
+      // console.log(plan);
+      return (
+        {
+          id: createEventId(),
+          title: plan.judul,
+          start: plan.mulai,
+          end: plan.selesai
+        }
+      )
+    }
+    else {
+      return (
+        {
+          id: '',
+          title: '',
+          start: '',
+          end: ''
+        }
+      )
+    }
   })
 
   // console.log(kegiatan);
-  
+
   // console.log(props.plans.map(plan => 'oi'))
 
   // const renderSidebar = () => {

@@ -2,12 +2,12 @@ import { Link } from "@inertiajs/react"
 
 const Sidebar = ({ color, title }) => {
 
-  const home = `grid justify-center ${title == "Home" ? "border-r-4 border-black" : "" }  hover:border-r-4 hover:border-black py-2`
-  const rencana = `grid justify-center ${title == "Rencana" ? "border-r-4 border-black" : "" }  hover:border-r-4 hover:border-black py-2`
-  const ruangan = `grid justify-center ${title == "Ruangan" ? "border-r-4 border-black" : "" }  hover:border-r-4 hover:border-black py-2`
+  const home = `grid justify-center ${title == "Home" ? "border-r-4 border-white" : "" }  hover:border-r-4 hover:border-white py-2`
+  const rencana = `grid justify-center ${title == "Rencana" ? "border-r-4 border-white" : "" }  hover:border-r-4 hover:border-white py-2`
+  const ruangan = `grid justify-center ${title == "Ruangan" ? "border-r-4 border-white" : "" }  hover:border-r-4 hover:border-white py-2`
 
   return (
-    <div className="hidden md:flex md:flex-col bg-slate-300 z-50 w-32 h-screen sticky top-0">
+    <div className="hidden md:flex md:flex-col bg-primary z-50 w-32 h-screen sticky top-0">
       <div className="flex justify-between flex-col h-screen pt-28">
         <ul className="flex-col">
           <li className="h-28">
@@ -34,7 +34,7 @@ const Sidebar = ({ color, title }) => {
         </ul>
         <ul className="flex-col">
           <li className="h-16">
-            <Link className="grid justify-center">
+            <Link href="/profil" className="grid justify-center">
               <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26.8385 28.3251C25.3475 24.3351 21.506 21.5 17 21.5C12.494 21.5 8.65247 24.3351 7.16147 28.3251M26.8385 28.3251C30.0005 25.5801 32 21.515 32 17C32 8.72 25.2845 2 17 2C8.7155 2 2 8.72 2 17C2 21.515 3.99947 25.5801 7.16147 28.3251M26.8385 28.3251C24.2045 30.6201 20.7635 32 17 32C13.2365 32 9.79547 30.6201 7.16147 28.3251M21.5 12.5C21.5 14.99 19.4855 17 17 17C14.5145 17 12.5 14.99 12.5 12.5C12.5 10.01 14.5145 8 17 8C19.4855 8 21.5 10.01 21.5 12.5Z" stroke={color} strokeWidth="2.5" strokeLinejoin="round" />
               </svg>

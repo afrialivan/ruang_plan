@@ -45,8 +45,11 @@ class rencanaController extends Controller
     {
         Rencana::create([
             'judul' => $request->judul,
-            'tanggal' => $request->tanggal,
-            'id_user' => $request->idUser,
+            'mulai' => $request->mulai,
+            'selesai' => $request->selesai,
+            'kategori' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
+            'id_user' => auth()->user()->id,
             'id_ruangan' => $request->ruangan
         ]);
     }

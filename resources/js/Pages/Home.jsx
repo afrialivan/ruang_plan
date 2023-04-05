@@ -32,12 +32,12 @@ const Home = (props) => {
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
             <div className="mx-4 mt-4">
-              <div className="flex flex-1 flex-col md:flex-row gap-5">
+              <div className="flex flex-1 flex-col md:flex-row gap-7">
                 <div className="w-full bg-base-200 rounded-lg h-100 shadow-lg lg:mb-0 mb-5">
                   <Calendar events={props.plans} />
                 </div>
                 <div className="md:w-1/3 bg-slate-200 px-5 py-5 rounded-lg h-full">
-                  <h4 className="font-bold text-xl">Kegiatan Yang Akan Datang</h4>
+                  <h4 className="font-bold text-xl mb-3">Kegiatan Yang Akan Datang</h4>
                   <div className="flex flex-col gap-2">
                     {props.plans.slice(0, 5).map((plan, index) => {
                       return (
@@ -48,9 +48,6 @@ const Home = (props) => {
                   </div>
                 </div>
               </div>
-              <Link href="tes">
-                tes
-              </Link>
             </div>
           </div>
         </div>

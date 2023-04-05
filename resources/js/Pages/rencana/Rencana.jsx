@@ -7,9 +7,18 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 
 const Rencana = (props) => {
-  // const { title } = useSelector(state => state.title)
-  const [mode, setMode] = useState('emerald')
-  const [color, setColor] = useState('black')
+  const [mode, setMode] = useState('mytheme')
+  const [color, setColor] = useState('white')
+
+  const darkMode = () => {
+    if (mode === "emerald") {
+      setMode("mytheme")
+      setColor("white")
+    } else {
+      setMode("emerald")
+      setColor("black")
+    }
+  }
 
   return (
     <>
@@ -20,12 +29,11 @@ const Rencana = (props) => {
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
             <div className="mx-4 mt-4">
-
-              <div className="bg-slate-200 w-full h-full rounded-lg px-8 pt-5 pb-7">
-                <h2 className="font-bold text-3xl md:mb-3">Rencana</h2>
+              <div className="bg-primary w-full h-full rounded-lg px-8 pt-5 pb-7 mb-14">
+                <h2 className={`font-bold text-3xl md:mb-3 text-${color}`}>Rencana</h2>
                 <div className="flex md:flex-col flex-col-reverse">
                   <div className="flex gap-4 flex-col md:flex-row md:mb-4">
-                    <div className="card md:w-1/3 bg-slate-300 h-[450px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Akan Datang</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'belum') {
@@ -35,7 +43,7 @@ const Rencana = (props) => {
                         }
                       })}
                     </div>
-                    <div className="card md:w-1/3 bg-slate-300 h-[450px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Sedang Berlangsung</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'proses') {
@@ -45,7 +53,7 @@ const Rencana = (props) => {
                         }
                       })}
                     </div>
-                    <div className="card md:w-1/3 bg-slate-300 h-[450px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Telah Selesai</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'selesai') {

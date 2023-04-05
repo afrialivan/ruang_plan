@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('rencanas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('tanggal');
+            $table->string('mulai');
+            $table->string('selesai');
             $table->text('deskripsi')->nullable();
             $table->foreignId('id_user');
             $table->foreignId('id_ruangan');
