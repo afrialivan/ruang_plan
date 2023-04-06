@@ -33,32 +33,32 @@ const Rencana = (props) => {
                 <h2 className={`font-bold text-3xl md:mb-3 text-${color}`}>Rencana</h2>
                 <div className="flex md:flex-col flex-col-reverse">
                   <div className="flex gap-4 flex-col md:flex-row md:mb-4">
-                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Akan Datang</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'belum') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Plan key={rencana.id} plan={rencana} color='neutral' />
                           )
                         }
                       })}
                     </div>
-                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Sedang Berlangsung</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'proses') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Plan key={rencana.id} plan={rencana} color='neutral' />
                           )
                         }
                       })}
                     </div>
-                    <div className="card md:w-1/3 bg-slate-300 md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
+                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-3 py-3 flex flex-col gap-2 overflow-y-scroll">
                       <h2 className="font-bold text-xl">Telah Selesai</h2>
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'selesai') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Plan key={rencana.id} plan={rencana} color='neutral' />
                           )
                         }
                       })}

@@ -14,9 +14,9 @@ const Calendar = (props) => {
   }
 
   // console.log(props.events);
-  
-  
-  
+
+
+
   let kegiatan = props.events.map(plan => {
     if (plan.status_rencana !== 'belum_konfirmasi') {
       // console.log(plan);
@@ -110,7 +110,7 @@ const Calendar = (props) => {
   const renderEventContent = (eventInfo) => {
     return (
       <>
-        <b>{eventInfo.timeText}</b>
+        {/* <b>{eventInfo.timeText} </b> */}
         <i>{eventInfo.event.title}</i>
       </>
     )
@@ -133,8 +133,62 @@ const Calendar = (props) => {
   return (
     <div className='demo-app'>
       {/* {renderSidebar()} */}
-      <div className='demo-app-main'>
+      <div className='demo-app-main w-full h-full md:hidden'>
         <FullCalendar
+          navLinks={true}
+          navLinkDayClick={function (date, jsEvent) {
+            console.log('day', date.toISOString());
+            // console.log('coords', jsEvent.pageX, jsEvent.pageY);
+          }}
+          buttonText={
+            {
+              today: 'today',
+              month: 'bulan',
+              week: 'minggu',
+              day: 'harian',
+              list: 'list'
+            }
+          }
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          // headerToolbar={{
+          //   left: 'prev,next today',
+          //   center: 'title',
+          //   right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          // }}
+          initialView='dayGridMonth'
+          // editable={true}
+          // selectable={true}
+          selectMirror={true}
+          dayMaxEvents={true}
+          weekends={weekendsVisible}
+          initialEvents={kegiatan} // alternatively, use the `events` setting to fetch from a feed
+          // select={handleDateSelect}
+          eventContent={renderEventContent} // custom render function
+          eventClick={handleEventClick}
+          eventsSet={handleEvents} // called after events are initialized/added/changed/removed
+        /* you can update a remote database when these fire:
+        eventAdd={function(){}}
+        eventChange={function(){}}
+        eventRemove={function(){}}
+        */
+        />
+      </div>
+      <div className='demo-app-main w-full h-full hidden md:block'>
+        <FullCalendar
+          navLinks={true}
+          navLinkDayClick={function (date, jsEvent) {
+            console.log('day', date.toISOString());
+            // console.log('coords', jsEvent.pageX, jsEvent.pageY);
+          }}
+          buttonText={
+            {
+              today: 'today',
+              month: 'bulan',
+              week: 'minggu',
+              day: 'harian',
+              list: 'list'
+            }
+          }
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
             left: 'prev,next today',

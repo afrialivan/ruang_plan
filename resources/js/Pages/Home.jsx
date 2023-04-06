@@ -28,20 +28,27 @@ const Home = (props) => {
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
-            <div className="mx-4 mt-4">
+            <div className="mx-4 lg:mx-16 mt-4">
               <div className="flex flex-1 flex-col md:flex-row gap-7">
-                <div className="w-full bg-base-200 rounded-lg h-100 shadow-lg lg:mb-0 mb-5">
+                <div className="bg-base-200 rounded-3xl overflow-hidden w-full h-full shadow-lg lg:mb-0 mb-5">
                   <Calendar events={props.plans} />
                 </div>
-                <div className="md:w-1/3  bg-primary px-5 py-5 rounded-lg h-full">
-                  <h4 className={`font-bold text-xl mb-3 text-${color}`}>Kegiatan Yang Akan Datang</h4>
-                  <div className="flex flex-col gap-2">
-                    {props.plans.slice(0, 5).map((plan, index) => {
+                <div className="md:w-1/3  bg-primary rounded-3xl h-full pt-5 overflow-hidden">
+                  <h4 className={`font-bold text-xl mb-3 text-${color} px-5`}>Kegiatan Yang Akan Datang</h4>
+                  <div className="flex flex-col gap-3 px-5 mb-5">
+                    {props.plans.slice(0, 7).map((plan, index) => {
                       return (
                         // console.log(plan.judul)
-                        <Plans key={index} plan={plan} />
+                        <Plans key={index} plan={plan} color='secondary' />
                       )
                     })}
+                  </div>
+                  <div className="bg-secondary py-5 px-9">
+                    <Link href="/rencana">
+                      <div className="bg-primary rounded-2xl text-center py-3 px-4 text-xl text-secondary font-semibold">
+                        Lainnya
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const Navbar = ({ darkMode }) => {
       <Head>
         <link rel="icon" type="image/svg+xml" href="img/logoo.svg" />
       </Head>
-      <div className="navbar sticky top-0 border-b-2 bg-base-100 z-20 ">
+      <div className="navbar sticky top-0 border-b-2 bg-base-100 z-20 px-4 lg:px-16">
         <div className="flex-1">
           <Link href="/" className="btn btn-ghost normal-case text-xl"><img src="img/logo.svg" className="w-32" alt="" /></Link>
         </div>
