@@ -17,7 +17,7 @@ const Users = (props) => {
       <div>
         <Link href='/dashboard/home'>back</Link>
       </div>
-      <div>
+      <div className='mb-11'>
         <Link href='/dashboard/users/tambah-user'>tambah</Link>
       </div>
 

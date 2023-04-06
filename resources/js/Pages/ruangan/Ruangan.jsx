@@ -7,8 +7,18 @@ import { useSelector } from "react-redux"
 
 const Ruangan = (props) => {
   // const { title } = useSelector(state => state.title)
-  const [mode, setMode] = useState('emerald')
-  const [color, setColor] = useState('black')
+  const [mode, setMode] = useState('mytheme')
+  const [color, setColor] = useState('white')
+
+  const darkMode = () => {
+    if (mode === "emerald") {
+      setMode("mytheme")
+      setColor("white")
+    } else {
+      setMode("emerald")
+      setColor("black")
+    }
+  }
 
   return (
     <>

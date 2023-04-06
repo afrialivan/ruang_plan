@@ -17,7 +17,7 @@ const Home = () => {
               </div>
 
               <div>
-                <Link href="tes">
+                <Link href="/tes">
                   tes
                 </Link>
               </div>

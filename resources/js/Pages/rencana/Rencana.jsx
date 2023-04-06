@@ -4,7 +4,7 @@ import Plan from "@/Components/Plan"
 import Sidebar from "@/Components/Sidebar"
 import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
 
 const Rencana = (props) => {
   const [mode, setMode] = useState('mytheme')

@@ -7,15 +7,12 @@ import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
 
 const Home = (props) => {
-  // const { title } = useSelector(state => state.title)
-  const [mode, setMode] = useState('emerald')
-  const [color, setColor] = useState('black')
-
-  // console.log(props)
+  const [mode, setMode] = useState('mytheme')
+  const [color, setColor] = useState('white')
 
   const darkMode = () => {
     if (mode === "emerald") {
-      setMode("forest")
+      setMode("mytheme")
       setColor("white")
     } else {
       setMode("emerald")
@@ -36,8 +33,8 @@ const Home = (props) => {
                 <div className="w-full bg-base-200 rounded-lg h-100 shadow-lg lg:mb-0 mb-5">
                   <Calendar events={props.plans} />
                 </div>
-                <div className="md:w-1/3 bg-slate-200 px-5 py-5 rounded-lg h-full">
-                  <h4 className="font-bold text-xl mb-3">Kegiatan Yang Akan Datang</h4>
+                <div className="md:w-1/3  bg-primary px-5 py-5 rounded-lg h-full">
+                  <h4 className={`font-bold text-xl mb-3 text-${color}`}>Kegiatan Yang Akan Datang</h4>
                   <div className="flex flex-col gap-2">
                     {props.plans.slice(0, 5).map((plan, index) => {
                       return (
