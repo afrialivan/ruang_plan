@@ -38,7 +38,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'belum') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} color='neutral' />
+                            <Plan key={rencana.id} plan={rencana} />
                           )
                         }
                       })}
@@ -48,7 +48,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'proses') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} color='neutral' />
+                            <Plan key={rencana.id} plan={rencana} />
                           )
                         }
                       })}
@@ -58,7 +58,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'selesai') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} color='neutral' />
+                            <Plan key={rencana.id} plan={rencana} />
                           )
                         }
                       })}

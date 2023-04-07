@@ -23,7 +23,7 @@ const Login = (props) => {
       <div className='md:w-1/2 h-screen'>
         <div className="flex w-100 h-screen justify-center items-center">
           <div className='w-screen md:w-96'>
-            <img src="img/logo(1).svg" className='mb-14 w-20 h-20 block m-auto' alt="" />
+            <img src="img/logo(1).svg" className='md:mb-14 w-20 h-20 block m-auto' alt="" />
             <div className='m-auto text-primary px-10 md:px-0'>
               <div className='text-center'>
                 <h1 className='font-bold text-3xl'>Selamat Datang</h1>

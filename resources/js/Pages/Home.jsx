@@ -30,7 +30,7 @@ const Home = (props) => {
             <Navbar darkMode={() => darkMode()} />
             <div className="mx-4 lg:mx-16 mt-4">
               <div className="flex flex-1 flex-col md:flex-row gap-7">
-                <div className="bg-base-200 rounded-3xl overflow-hidden w-full h-full shadow-lg lg:mb-0 mb-5">
+                <div className="rounded-3xl overflow-hidden w-full h-full shadow-lg lg:mb-0 mb-5 text-neutral bg-primary">
                   <Calendar events={props.plans} />
                 </div>
                 <div className="md:w-1/3  bg-primary rounded-3xl h-full pt-5 overflow-hidden">
@@ -39,7 +39,7 @@ const Home = (props) => {
                     {props.plans.slice(0, 7).map((plan, index) => {
                       return (
                         // console.log(plan.judul)
-                        <Plans key={index} plan={plan} color='secondary' />
+                        <Plans key={index} plan={plan} />
                       )
                     })}
                   </div>
