@@ -1,8 +1,6 @@
 import { Head, Link } from "@inertiajs/react"
-import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { update } from '../features/warnaActive'
-import { useEffect } from "react"
 
 
 const Navbar = () => {
