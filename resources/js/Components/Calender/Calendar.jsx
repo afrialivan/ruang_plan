@@ -173,7 +173,7 @@ const Calendar = (props) => {
         */
         />
       </div>
-      <div className='demo-app-main w-full h-full hidden md:block'>
+      <div className='demo-app-main w-full h-full hidden md:block text-neutral'>
         <FullCalendar
           navLinks={true}
           navLinkDayClick={function (date, jsEvent) {

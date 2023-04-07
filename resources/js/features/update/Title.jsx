@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from "react-redux"
-import { update } from '../titleActive'
+import { update } from '../warnaActive'
 
 const Title = (props) => {
   const dispath = useDispatch()

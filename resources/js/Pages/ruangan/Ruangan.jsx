@@ -6,28 +6,17 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 
 const Ruangan = (props) => {
-  // const { title } = useSelector(state => state.title)
-  const [mode, setMode] = useState('mytheme')
+  const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
-
-  const darkMode = () => {
-    if (mode === "emerald") {
-      setMode("mytheme")
-      setColor("white")
-    } else {
-      setMode("emerald")
-      setColor("black")
-    }
-  }
 
   return (
     <>
       <Head title={props.title} />
-      <div data-theme={mode} className="flex flex-col">
+      <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
-            <Navbar darkMode={() => darkMode()} />
+            <Navbar />
             <div className="mx-4 mt-4">
 
 

@@ -4,26 +4,17 @@ import Plan from "@/Components/Plan"
 import Sidebar from "@/Components/Sidebar"
 import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
+import { useSelector } from "react-redux"
 // import { useSelector } from "react-redux"
 
 const Rencana = (props) => {
-  const [mode, setMode] = useState('mytheme')
+  const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
-
-  const darkMode = () => {
-    if (mode === "emerald") {
-      setMode("mytheme")
-      setColor("white")
-    } else {
-      setMode("emerald")
-      setColor("black")
-    }
-  }
 
   return (
     <>
       <Head title={props.title} />
-      <div data-theme={mode} className="flex flex-col">
+      <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
@@ -38,7 +29,9 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'belum') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Link key={rencana.id}>
+                              <Plan plan={rencana} />
+                            </Link>
                           )
                         }
                       })}
@@ -48,7 +41,9 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'proses') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Link key={rencana.id}>
+                              <Plan plan={rencana} />
+                            </Link>
                           )
                         }
                       })}
@@ -58,7 +53,9 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'selesai') {
                           return (
-                            <Plan key={rencana.id} plan={rencana} />
+                            <Link key={rencana.id}>
+                              <Plan plan={rencana} />
+                            </Link>
                           )
                         }
                       })}
@@ -69,7 +66,7 @@ const Rencana = (props) => {
                   </div>
                 </div>
               </div>
-              
+
               <div>
                 <Link href="tes">
                   tes

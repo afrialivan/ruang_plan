@@ -28,7 +28,7 @@ module.exports = {
                     "base-100": "#EFF5F5",
                 },
             },
-            "light",
+            "dark",
             "forest",
             "emerald",
 

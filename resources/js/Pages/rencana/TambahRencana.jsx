@@ -5,9 +5,10 @@ import { Inertia } from '@inertiajs/inertia'
 import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
 import React from 'react'
+import { useSelector } from "react-redux"
 
 const TambahRencana = (props) => {
-  const [mode, setMode] = useState('emerald')
+  const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('black')
   const [judul, setJudul] = useState('')
   const [mulai, setMulai] = useState('')
@@ -24,12 +25,12 @@ const TambahRencana = (props) => {
     Inertia.post('/rencana/tambah-rencana', data)
   }
 
-  console.log('2023-04-04t21:24 : ', mulai);
+  // console.log('2023-04-04t21:24 : ', mulai);
 
   return (
     <>
       <Head title={props.title} />
-      <div data-theme={mode} className="flex flex-col">
+      <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} />
           <div className="w-full">

@@ -27,7 +27,7 @@ const Kegiatan = (props) => {
       <Link href='/dashboard/home' >back</Link>
       {props.kegiatans.map((rencana, index) => {
         return (
-          <div key={index} className='bg-slate-100 mb-3'>
+          <div key={index} className='bg-black mb-3'>
             <p>{rencana.name}</p>
             <p>{rencana.judul}</p>
             <p>{rencana.tanggal}</p>

@@ -4,15 +4,15 @@ import Sidebar from '@/Components/Sidebar'
 import { Head, Link } from '@inertiajs/react'
 import React from 'react'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const Profil = (props) => {
-  // console.log(props.auth.user.name);
-  const [mode, setMode] = useState('emerald')
+  const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('black')
   return (
     <>
       <Head title={props.title} />
-      <div data-theme={mode} className="flex flex-col">
+      <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} />
           <div className="w-full">

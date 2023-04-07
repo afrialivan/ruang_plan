@@ -110,7 +110,7 @@ class dashboardController extends Controller
     public function edit()
     {
         $data = DB::table('rencanas')
-            ->where('status_rencana', '=', 'belum')
+            ->where('status_rencana', '=', 'belum_konfirmasi')
             ->leftJoin('users', 'users.id', '=', 'rencanas.id_user')
             ->select('rencanas.*', 'users.name')
             ->latest()
@@ -130,7 +130,8 @@ class dashboardController extends Controller
         Rencana::where('id', $request->id)->update(
             [
                 'judul' => $rencana[0]->judul,
-                'tanggal' => $rencana[0]->tanggal,
+                'mulai' => $rencana[0]->mulai,
+                'selesai' => $rencana[0]->selesai,
                 'id_user' => $rencana[0]->id_user,
                 'id_ruangan' => $rencana[0]->id_ruangan,
                 'kategori' => $rencana[0]->kategori,
@@ -145,7 +146,8 @@ class dashboardController extends Controller
         Rencana::where('id', $request->id)->update(
             [
                 'judul' => $rencana[0]->judul,
-                'tanggal' => $rencana[0]->tanggal,
+                'mulai' => $rencana[0]->mulai,
+                'selesai' => $rencana[0]->selesai,
                 'id_user' => $rencana[0]->id_user,
                 'id_ruangan' => $rencana[0]->id_ruangan,
                 'kategori' => $rencana[0]->kategori,
