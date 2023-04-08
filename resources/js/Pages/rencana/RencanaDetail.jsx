@@ -9,7 +9,13 @@ const RencanaDetail = (props) => {
   const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
   const rencana = props.rencana
-
+  const hari = ['', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
+  const bulan = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+  const date = new Date(rencana.mulai)
+  const day = date.getDay()
+  const month = date.getMonth() + 1
+  // console.log(hari[day]);
+  // console.log(month);
 
   return (
     <>
@@ -19,17 +25,46 @@ const RencanaDetail = (props) => {
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
             <Navbar />
-            <div className="mx-4 mt-4 bg-primary rounded-xl px-28 py-14">
-              <div className="flex flex-1 gap-10">
-                <div className="w-4/5">
+            <div className="bg-primary rounded-3xl px-10 md:px-10 lg:px-24 py-14 mb-24 mx-4 mt-4">
+              <div className="flex flex-1 flex-col md:flex-row gap-10 md:gap-0">
+                <div className="md:w-4/5">
+                  <div className="flex md:hidden justify-end">
+                    <Link href="/rencana">
+                      <img src="../img/back.svg" alt="" />
+                    </Link>
+                  </div>
                   <h1 className="font-bold text-5xl text-white mb-7">{rencana.judul}</h1>
                   <div className="w-100 h-72 overflow-hidden rounded-xl mb-5">
                     <img src="http://source.unsplash.com/1080x720?schedule" className="w-full h-full bg-black object-cover" alt="" />
                   </div>
-                  <p className="text-white text-lg leading-tight">{rencana.deskripsi} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi atque exercitationem accusantium animi, libero rem minus possimus quidem tempore quis repudiandae, culpa distinctio maiores, assumenda odit eaque nam? Quisquam enim unde placeat nemo facilis laboriosam eos porro. Veniam, id quod. Non in commodi fugit similique sed dolorem adipisci, laborum quas! Ratione excepturi consequuntur perspiciatis cumque dolores aspernatur dolore, quisquam quas voluptatem vero omnis earum nostrum itaque magni error, doloribus, possimus cupiditate. Tempora placeat repudiandae eius velit facilis sit earum id optio! Numquam vero nemo dolore atque ex. Sed laboriosam fuga veniam eos quaerat ab culpa placeat error, deleniti aspernatur. Illum.</p>
+                  <p className="text-white text-lg leading-tight">{rencana.deskripsi}</p>
                 </div>
-                <div className="w-1/5">
-                  <h1>oi</h1>
+                <div className="hidden md:flex divider divider-horizontal before:bg-white after:bg-white"></div>
+                <div className="flex md:hidden divider divider-vertical before:bg-white after:bg-white"></div>
+                <div className="md:w-1/5">
+                  <div className="hidden md:flex justify-end">
+                    <Link href="/rencana">
+                      <img src="../img/back.svg" alt="" />
+                    </Link>
+                  </div>
+                  <div className="flex flex-col lg:justify-evenly h-full gap-10 md:mt-8 lg:mt-0 lg:gap-0">
+                    <div className="font-bold text-white text-xl flex flex-col gap-2">
+                      <h1>Hari, Tanggal</h1>
+                      <h1>{hari[day]}, {rencana.mulai.slice(8, 10)} {bulan[month]} {rencana.mulai.slice(0, 4)}</h1>
+                    </div>
+                    <div className="font-bold text-white text-xl flex flex-col gap-2">
+                      <h1>Waktu</h1>
+                      <h1>{rencana.mulai.slice(11)} - {rencana.selesai.slice(11)} WITA</h1>
+                    </div>
+                    <div className="font-bold text-white text-xl flex flex-col gap-2">
+                      <h1>Lokasi</h1>
+                      <h1>{rencana.nama_ruangan}</h1>
+                    </div>
+                    <div className="font-bold text-white text-xl flex flex-col gap-2">
+                      <h1>Penanggung Jawab</h1>
+                      <h1>Kepala SMK Telkom Makassar</h1>
+                    </div>
+                  </div>
                 </div>
               </div>
 

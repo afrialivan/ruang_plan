@@ -40,7 +40,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'proses') {
                           return (
-                            <Link key={rencana.id}>
+                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
                               <Plan plan={rencana} />
                             </Link>
                           )
@@ -52,7 +52,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'selesai') {
                           return (
-                            <Link key={rencana.id}>
+                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
                               <Plan plan={rencana} />
                             </Link>
                           )
