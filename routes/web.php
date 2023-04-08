@@ -40,12 +40,11 @@ Route::get('/logout', [loginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [homeController::class, 'index']);
-    
     Route::get('/rencana', [rencanaController::class, 'index']);
+    Route::get('/rencana/{id}', [rencanaController::class, 'show']);
     Route::get('/rencana/tambah-rencana', [rencanaController::class, 'create']);
     Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
     Route::get('/ruangan', [ruanganController::class, 'index']);
-
     Route::get('/profil', [ProfileController::class, 'index']);
 });
 

@@ -2,7 +2,6 @@ import { Head, Link } from "@inertiajs/react"
 import { useDispatch, useSelector } from "react-redux"
 import { update } from '../features/warnaActive'
 
-
 const Navbar = () => {
   const { warna } = useSelector(state => state.warna)
   const dispath = useDispatch()

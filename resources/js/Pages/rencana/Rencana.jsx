@@ -5,7 +5,6 @@ import Sidebar from "@/Components/Sidebar"
 import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
 import { useSelector } from "react-redux"
-// import { useSelector } from "react-redux"
 
 const Rencana = (props) => {
   const { warna } = useSelector(state => state.warna)
@@ -29,7 +28,7 @@ const Rencana = (props) => {
                       {props.rencana.map(rencana => {
                         if (rencana.status_rencana === 'belum') {
                           return (
-                            <Link key={rencana.id}>
+                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
                               <Plan plan={rencana} />
                             </Link>
                           )

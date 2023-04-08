@@ -57,9 +57,18 @@ class rencanaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $data = DB::table('rencanas')
+            ->leftJoin('ruangans', 'ruangans.id', '=', 'rencanas.id_ruangan')
+            ->select('rencanas.*', 'ruangans.nama_ruangan')
+            ->where('rencanas.id', '=' ,$id)
+            ->latest()
+            ->get();
+        // dd($data);
+        return Inertia::render('rencana/RencanaDetail', [
+            'rencana' => $data[0]
+        ]);
     }
 
     /**
