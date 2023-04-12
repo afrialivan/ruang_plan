@@ -9,13 +9,11 @@ const RencanaDetail = (props) => {
   const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
   const rencana = props.rencana
-  const hari = ['', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
-  const bulan = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+  const days = ['', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
+  const months = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
   const date = new Date(rencana.mulai)
   const day = date.getDay()
   const month = date.getMonth() + 1
-  // console.log(hari[day]);
-  // console.log(month);
 
   return (
     <>
@@ -47,10 +45,10 @@ const RencanaDetail = (props) => {
                       <img src="../img/back.svg" alt="" />
                     </Link>
                   </div>
-                  <div className="flex flex-col lg:justify-evenly h-full gap-10 md:mt-8 lg:mt-0 lg:gap-0">
+                  <div className="flex flex-col h-full gap-10 md:mt-8 lg:mt-10 lg:gap-12">
                     <div className="font-bold text-white text-xl flex flex-col gap-2">
                       <h1>Hari, Tanggal</h1>
-                      <h1>{hari[day]}, {rencana.mulai.slice(8, 10)} {bulan[month]} {rencana.mulai.slice(0, 4)}</h1>
+                      <h1>{days[day]}, {rencana.mulai.slice(8, 10)} {months[month]} {rencana.mulai.slice(0, 4)}</h1>
                     </div>
                     <div className="font-bold text-white text-xl flex flex-col gap-2">
                       <h1>Waktu</h1>
@@ -62,7 +60,7 @@ const RencanaDetail = (props) => {
                     </div>
                     <div className="font-bold text-white text-xl flex flex-col gap-2">
                       <h1>Penanggung Jawab</h1>
-                      <h1>Kepala SMK Telkom Makassar</h1>
+                      <h1>{rencana.penanggung_jawab}</h1>
                     </div>
                   </div>
                 </div>

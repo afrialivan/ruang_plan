@@ -9,10 +9,11 @@ import { useSelector } from "react-redux"
 
 const TambahRencana = (props) => {
   const { warna } = useSelector(state => state.warna)
-  const [color, setColor] = useState('black')
+  const [color, setColor] = useState('white')
   const [judul, setJudul] = useState('')
   const [mulai, setMulai] = useState('')
   const [kategori, setkategori] = useState('')
+  const [penanggungJawab, setPenanggungJawab] = useState('')
   const [deskripsi, setDeskripsi] = useState('')
   const [selesai, setSelesai] = useState('')
   const [ruangan, setRuangan] = useState('')
@@ -20,7 +21,7 @@ const TambahRencana = (props) => {
 
   const submitData = () => {
     const data = {
-      judul, mulai, selesai, ruangan, kategori, deskripsi
+      judul, mulai, selesai, ruangan, kategori, deskripsi, penanggungJawab
     }
     Inertia.post('/rencana/tambah-rencana', data)
   }
@@ -88,7 +89,10 @@ const TambahRencana = (props) => {
                     </div>
                     <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Penanggung Jawab</label>
-                      <input type="text" className="border-none rounded-lg" placeholder="" />
+                      <input type="text" className="border-none rounded-lg" placeholder=""
+                        value={penanggungJawab}
+                        onChange={(event) => setPenanggungJawab(event.target.value)}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col mb-3">

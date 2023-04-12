@@ -48,6 +48,7 @@ class rencanaController extends Controller
             'mulai' => $request->mulai,
             'selesai' => $request->selesai,
             'kategori' => $request->kategori,
+            'penanggung_jawab' => $request->penanggungJawab,
             'deskripsi' => $request->deskripsi,
             'id_user' => auth()->user()->id,
             'id_ruangan' => $request->ruangan

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('judul');
             $table->string('mulai');
             $table->string('selesai');
-            $table->text('deskripsi')->nullable();
+            $table->text('deskripsi');
+            $table->string('penanggung_jawab');
             $table->foreignId('id_user');
             $table->foreignId('id_ruangan');
             $table->enum('kategori', ['siswa', 'guru', 'osis', 'semua'])->default('semua');

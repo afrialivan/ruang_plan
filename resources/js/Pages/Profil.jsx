@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 const Profil = (props) => {
   const { warna } = useSelector(state => state.warna)
-  const [color, setColor] = useState('black')
+  const [color, setColor] = useState('white')
   return (
     <>
       <Head title={props.title} />
@@ -16,27 +16,40 @@ const Profil = (props) => {
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} />
           <div className="w-full">
-            <Navbar darkMode={() => darkMode()} />
+            <Navbar />
             <div className="mx-4 mt-4">
-              <div className='w-56 h-w-56 m-auto block rounded-full overflow-hidden mb-3 img-thumbnail'>
+              <div className='w-56 h-56 m-auto bg-black block rounded-full overflow-hidden mb-3 mt-20'>
                 <img src="http://source.unsplash.com/500x500?person" alt="" className='h-full w-full' />
               </div>
-              <h1 className='text-center font-bold text-4xl'>{props.auth.user.name}</h1>
-              <div className="block m-auto max-w-5xl">
-                <div className='flex flex-col bg-slate-200 rounded-lg gap-9 px-20 py-6'>
-                  <div className='flex justify-between'>
-                    <h1>Nama</h1>
-                    <label htmlFor="my-modal" className='cursor-pointer'>{props.auth.user.name}</label>
-                  </div>
-                  <div className='flex justify-between'>
-                    <h1>NIS</h1>
-                    <h1>{props.auth.user.nis}</h1>
-                  </div>
-                  <div className='flex justify-between'>
-                    <h1>Email</h1>
-                    <h1>afrialivan@gmail.com</h1>
-                  </div>
-                </div>
+              <h1 className='text-center font-bold text-5xl text-primary'>A. Muh. Afrial Ivan Pratama</h1>
+              <h1 className='text-center text-3xl text-primary'>Kelas 12</h1>
+              <div className="block m-auto px-48 mt-20">
+                <table>
+                  <tr className='h-16'>
+                    <td className='w-72'>
+                      <h1 className='text-2xl font-bold text-primary'>Nomor Induk</h1>
+                    </td>
+                    <td>
+                      <input type="text" className='w-96 bg-[#D6E4E5] py-2 px-3 border-none rounded-lg text-2xl font-bold text-primary' value='544201505' />
+                    </td>
+                  </tr>
+                  <tr className='h-16'>
+                    <td className='w-72'>
+                      <h1 className='text-2xl font-bold text-primary'>Jurusan</h1>
+                    </td>
+                    <td>
+                      <input type="text" className='w-96 bg-[#D6E4E5] py-2 px-3 border-none rounded-lg text-2xl font-bold text-primary' value='Rekayasa Perangkat Lunak' />
+                    </td>
+                  </tr>
+                  <tr className='h-16'>
+                    <td className='w-72'>
+                      <h1 className='text-2xl font-bold text-primary'>Jenis Kelamin</h1>
+                    </td>
+                    <td>
+                      <input type="text" className='w-96 bg-[#D6E4E5] py-2 px-3 border-none rounded-lg text-2xl font-bold text-primary' value='Laki-Laki' />
+                    </td>
+                  </tr>
+                </table>
                 {/* <Link href="tes">
                   tes
                 </Link> */}
