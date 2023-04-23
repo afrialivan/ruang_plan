@@ -15,22 +15,25 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return Inertia::render('dashboard/Home');
+        return Inertia::render('dashboard/Home', [
+            'title' => 'Dashboard Home'
+        ]);
     }
 
     public function users()
     {
         return Inertia::render('dashboard/users/Users', [
-            'users' => User::latest()->get()
+            'users' => User::latest()->get(),
+            'title' => 'Users'
         ]);
     }
 
-    public function create_user()
-    {
-        return Inertia::render('dashboard/users/TambahAkun', [
-            'users' => User::latest()->get()
-        ]);
-    }
+    // public function create_user()
+    // {
+    //     return Inertia::render('dashboard/users/TambahAkun', [
+    //         'users' => User::latest()->get()
+    //     ]);
+    // }
     
     public function store_users(Request $request)
     {
@@ -116,7 +119,8 @@ class dashboardController extends Controller
             ->latest()
             ->get();
         return Inertia::render('dashboard/Kegiatan', [
-            'kegiatans' => $data
+            'kegiatans' => $data,
+            'title' => 'Konfirmasi Kegiatan'
         ]);
     }
 

@@ -33,7 +33,7 @@ const TambahRencana = (props) => {
       <Head title={props.title} />
       <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
-          <Sidebar color={color} title={props.title} />
+          <Sidebar color={color} title={props.title} role={props.auth.user.role} />
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
             <div className="mx-4 mt-4 flex flex-1 mb-20 md:mb-0">
