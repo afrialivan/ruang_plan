@@ -1,12 +1,12 @@
+import React, { useState } from "react"
+import { Head, Link } from "@inertiajs/react"
+import { useSelector } from "react-redux"
 import Calendar from "@/Components/Calender/Calendar"
 import MobileNav from "@/Components/MobileNav"
 import Navbar from "@/Components/Navbar"
 import Plans from "@/Components/Plan"
 import Sidebar from "@/Components/Sidebar"
 import UpdateData from "@/features/UpdateData"
-import { Head, Link } from "@inertiajs/react"
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
 
 const Home = (props) => {
   const { warna } = useSelector(state => state.warna)
