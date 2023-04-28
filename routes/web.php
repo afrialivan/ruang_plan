@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/rencana', [rencanaController::class, 'index']);
     Route::get('/rencana/tambah-rencana', [rencanaController::class, 'create']);
     Route::post('/rencana/tambah-rencana', [rencanaController::class, 'store']);
+    Route::post('/rencana/update', [rencanaController::class, 'update']);
     Route::get('/rencana/{id}', [rencanaController::class, 'show']);
     Route::get('/ruangan', [ruanganController::class, 'index']);
     Route::get('/profil', [ProfileController::class, 'index']);

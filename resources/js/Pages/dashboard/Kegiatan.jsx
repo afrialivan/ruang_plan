@@ -1,11 +1,12 @@
 import { Inertia } from '@inertiajs/inertia';
-import { Link, Head } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import React from 'react'
 import { useState } from 'react';
 import { useSelector } from "react-redux"
 import MobileNav from "@/Components/MobileNav"
 import Navbar from "@/Components/Navbar"
 import Sidebar from "@/Components/Sidebar"
+import UpdateData from '@/features/UpdateData';
 
 const Kegiatan = (props) => {
   const { warna } = useSelector(state => state.warna)
@@ -15,8 +16,6 @@ const Kegiatan = (props) => {
 
   const date = !props.kegiatans[0] ? '' : new Date(props.kegiatans[0].mulai)
   const month = !props.kegiatans[0] ? '' :  date.getMonth() + 1
-
-  // console.log(props.kegiatans[0].mulai);
 
   const konfirmasiKegiatan = (id) => {
     console.log(id);
@@ -39,6 +38,7 @@ const Kegiatan = (props) => {
   return (
     <>
       <Head title={props.title} />
+      <UpdateData data={props.kegiatans} />
       <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />

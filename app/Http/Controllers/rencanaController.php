@@ -83,9 +83,20 @@ class rencanaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        Rencana::where('id', $request->id)->update([
+            'judul' => $request->judul,
+            'mulai' => $request->mulai,
+            'selesai' => $request->selesai,
+            'deskripsi' => $request->deskripsi,
+            'penanggung_jawab' => $request->penanggung_jawab,
+            'id_user' => $request->id_user,
+            'id_ruangan' => $request->id_ruangan,
+            'kategori' => $request->kategori,
+            'status_rencana' => $request->status_rencana
+        ]);
+        // dd('done ygy');
     }
 
     /**

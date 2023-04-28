@@ -10,7 +10,7 @@ const Home = (props) => {
   const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <>

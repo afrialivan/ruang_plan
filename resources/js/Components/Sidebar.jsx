@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react"
 
 const Sidebar = ({ color, title, role }) => {
-  console.log(role);
+  // console.log(role);
   return (
     <div className="hidden md:flex md:flex-col bg-primary z-50 w-32 h-screen sticky top-0">
       <div className="flex justify-between flex-col h-screen pt-28">

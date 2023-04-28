@@ -3,8 +3,9 @@ import MobileNav from "@/Components/MobileNav"
 import Navbar from "@/Components/Navbar"
 import Plans from "@/Components/Plan"
 import Sidebar from "@/Components/Sidebar"
+import UpdateData from "@/features/UpdateData"
 import { Head, Link } from "@inertiajs/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 const Home = (props) => {
@@ -13,6 +14,7 @@ const Home = (props) => {
 
   return (
     <>
+      <UpdateData data={props.plans} />
       <Head title={props.title} />
       <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
@@ -30,7 +32,6 @@ const Home = (props) => {
                     {props.plans.slice(0, 7).map((plan, index) => {
                       if (plan.status_rencana !== 'belum_konfirmasi') {
                         return (
-                          // console.log(plan.judul)
                           <Plans key={index} plan={plan} />
                         )
                       }

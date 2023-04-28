@@ -2,6 +2,7 @@ import MobileNav from "@/Components/MobileNav"
 import Navbar from "@/Components/Navbar"
 import Plan from "@/Components/Plan"
 import Sidebar from "@/Components/Sidebar"
+import UpdateData from "@/features/UpdateData"
 import { Head, Link } from "@inertiajs/react"
 import { useState } from "react"
 import { useSelector } from "react-redux"
@@ -13,6 +14,7 @@ const Rencana = (props) => {
   return (
     <>
       <Head title={props.title} />
+      <UpdateData data={props.rencana} />
       <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />
