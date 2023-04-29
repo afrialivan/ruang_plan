@@ -16,7 +16,7 @@ const Home = (props) => {
     <>
       <UpdateData data={props.plans} />
       <Head title={props.title} />
-      <div data-theme={warna} className="flex flex-col">
+      <div data-theme={warna} className="flex flex-col mb-28 md:mb-0">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />
           <div className="w-full">

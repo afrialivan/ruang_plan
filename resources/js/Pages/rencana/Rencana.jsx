@@ -68,11 +68,6 @@ const Rencana = (props) => {
                 </div>
               </div>
 
-              <div>
-                <Link href="tes">
-                  tes
-                </Link>
-              </div>
             </div>
           </div>
         </div>

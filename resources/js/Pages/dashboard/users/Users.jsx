@@ -15,6 +15,7 @@ const Users = (props) => {
   const [role, setRole] = useState('')
 
   const destroyUser = (id) => {
+    confirm('ingin menghapus user ini?')
     Inertia.delete(`/dashboard/users/${id}`)
   }
 
@@ -28,10 +29,9 @@ const Users = (props) => {
             <Navbar />
             <div className="mx-4 mt-4">
               <div>
-                <div className='mb-11'>
-                  <Link href='/dashboard/users/tambah-user'>tambah</Link>
+                <div className='mb-6'>
+                  <Link className='bg-primary px-5 py-2 rounded-lg text-white' href='/dashboard/users/tambah-user'>tambah</Link>
                 </div>
-
                 <div className="overflow-x-auto shadow-md rounded-lg">
                   <table className="table w-full">
                     {/* head*/}

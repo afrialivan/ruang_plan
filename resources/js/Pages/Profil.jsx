@@ -16,7 +16,7 @@ const Profil = (props) => {
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />
           <div className="w-full">
-            <Navbar />
+            <Navbar title="profil" />
             <div className="mx-4 mt-4">
               <div className='w-56 h-56 m-auto bg-black block rounded-full overflow-hidden mb-3 mt-20'>
                 <img src="http://source.unsplash.com/500x500?person" alt="" className='h-full w-full' />
@@ -50,6 +50,10 @@ const Profil = (props) => {
                     </td>
                   </tr>
                 </table>
+                <div className='flex text-white gap-3 justify-end mt-16 font-bold'>
+                  <button className='bg-primary px-7 py-2 rounded-xl'>Edit</button>
+                  <button className='bg-primary px-7 py-2 rounded-xl'>Simpan</button>
+                </div>
                 {/* <Link href="tes">
                   tes
                 </Link> */}

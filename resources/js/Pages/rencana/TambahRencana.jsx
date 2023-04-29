@@ -36,8 +36,12 @@ const TambahRencana = (props) => {
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />
           <div className="w-full">
             <Navbar darkMode={() => darkMode()} />
-            <div className="mx-4 mt-4 flex flex-1 mb-20 md:mb-0">
+            <div className="mx-4 mt-4 mb-20 md:mb-0">
+              <div className='mb-5'>
+                <Link className='bg-primary px-5 py-2 rounded-lg text-white' href='/rencana'>back</Link>
+              </div>
               <div className="bg-slate-200 w-full h-full rounded-lg px-8 pt-5 pb-7">
+
                 <h2 className="font-bold text-xl md:mb-3">Tambah Kegiatan</h2>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-col md:flex-row gap-5">

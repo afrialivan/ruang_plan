@@ -28,12 +28,12 @@ class dashboardController extends Controller
         ]);
     }
 
-    // public function create_user()
-    // {
-    //     return Inertia::render('dashboard/users/TambahAkun', [
-    //         'users' => User::latest()->get()
-    //     ]);
-    // }
+    public function create_user()
+    {
+        return Inertia::render('dashboard/users/TambahAkun', [
+            'users' => User::latest()->get()
+        ]);
+    }
     
     public function store_users(Request $request)
     {
@@ -42,6 +42,7 @@ class dashboardController extends Controller
             User::create([
                 'name' => $value['nama'],
                 'nis' => $value['nis'],
+                'role' => $value['role'],
                 'password' => bcrypt($value['password']),
             ]);
         }

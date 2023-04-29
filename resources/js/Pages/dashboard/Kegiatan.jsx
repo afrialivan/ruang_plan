@@ -24,13 +24,13 @@ const Kegiatan = (props) => {
   }
 
   const tolakKegiatan = (id) => {
-    console.log(id);
+    confirm('ingin menolak kegiatan ini?')
     const idKegiatan = { id }
     Inertia.post('/dashboard/tolak-kegiatan', idKegiatan)
   }
 
   const hapusKegiatan = (id) => {
-    console.log(id);
+    confirm('ingin menghapus kegiatan ini?')
     const idKegiatan = { id }
     Inertia.post('/dashboard/hapus-kegiatan', idKegiatan)
   }
