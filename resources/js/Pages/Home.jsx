@@ -11,7 +11,7 @@ import UpdateData from "@/features/UpdateData"
 const Home = (props) => {
   const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
-
+  // console.log(props);
   return (
     <>
       <UpdateData data={props.plans} />
@@ -24,13 +24,23 @@ const Home = (props) => {
             <div className="mx-4 lg:mx-16 mt-4">
               <div className="flex flex-1 flex-col md:flex-row gap-7">
                 <div className="rounded-3xl overflow-hidden w-full h-full shadow-lg lg:mb-0 mb-5 bg-primary font-bold">
-                  <Calendar events={props.plans} />
+                  <Calendar events={props.plans} role={props.auth} />
                 </div>
                 <div className="md:w-1/3  bg-primary rounded-3xl h-full pt-5 overflow-hidden">
                   <h4 className={`font-bold text-xl mb-3 text-${color} px-5`}>Kegiatan Yang Akan Datang</h4>
                   <div className="flex flex-col gap-3 px-5 mb-5">
                     {props.plans.slice(0, 7).map((plan, index) => {
-                      if (plan.status_rencana !== 'belum_konfirmasi') {
+                      if (plan.status_rencana == 'belum' && plan.kategori === props.auth.user.role) {
+                        return (
+                          <Plans key={index} plan={plan} />
+                        )
+                      }
+                      if (plan.status_rencana == 'belum' && plan.kategori === 'semua') {
+                        return (
+                          <Plans key={index} plan={plan} />
+                        )
+                      }
+                      if (plan.status_rencana == 'belum' && props.auth.user.role === 'admin') {
                         return (
                           <Plans key={index} plan={plan} />
                         )

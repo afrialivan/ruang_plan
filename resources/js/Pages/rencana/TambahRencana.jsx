@@ -19,7 +19,25 @@ const TambahRencana = (props) => {
   const [ruangan, setRuangan] = useState('')
   // const idUser = props.auth.user.id
 
-  const submitData = () => {
+  // console.log(mulai, selesai);
+
+  const submitData = (e) => {
+    e.preventDefault()
+    // console.log(props.ruangan);
+    // const ruangann = props.ruangan.find(ruang => ruang.id == ruangan)
+
+    props.rencana.map(plan => {
+      if (plan.mulai <= mulai && selesai <= plan.selesai && plan.id_ruangan == ruangan) {
+        alert('Ruangan telah terisi silahkan memilih ruangan lain atau mengganti tanggal atau waktu')
+        // console.log('ui');
+        throw new Error('Error occurred');
+        // return
+      }
+
+
+    })
+
+    // console.log('aaa');
     const data = {
       judul, mulai, selesai, ruangan, kategori, deskripsi, penanggungJawab
     }
@@ -43,23 +61,23 @@ const TambahRencana = (props) => {
               <div className="bg-slate-200 w-full h-full rounded-lg px-8 pt-5 pb-7">
 
                 <h2 className="font-bold text-xl md:mb-3">Tambah Kegiatan</h2>
-                <div className="flex flex-col gap-2">
+                <form onSubmit={submitData} className="flex flex-col gap-2">
                   <div className="flex flex-col md:flex-row gap-5">
                     <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Nama Kegiatan</label>
                       <input type="text" className="border-none rounded-lg" placeholder="inputkan nama kegiatan"
                         value={judul}
                         onChange={(event) => setJudul(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Kategori Kegiatan</label>
-                      <select className="border-none rounded-lg" value={kategori} onChange={(event) => setkategori(event.target.value)} >
+                      <select className="border-none rounded-lg" value={kategori} onChange={(event) => setkategori(event.target.value)} required >
                         <option>--</option>
                         <option value="semua">Semua</option>
                         <option value="siswa">Siswa</option>
                         <option value="guru">Guru</option>
-                        <option value="osis">Osis</option>
                       </select>
                     </div>
                   </div>
@@ -69,6 +87,7 @@ const TambahRencana = (props) => {
                       <input type="datetime-local" className="border-none rounded-lg" placeholder=""
                         value={mulai}
                         onChange={(event) => setMulai(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="flex flex-col md:w-1/2">
@@ -76,6 +95,7 @@ const TambahRencana = (props) => {
                       <input type="datetime-local" className="border-none rounded-lg" placeholder=""
                         value={selesai}
                         onChange={(event) => setSelesai(event.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -93,9 +113,11 @@ const TambahRencana = (props) => {
                     </div>
                     <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Penanggung Jawab</label>
-                      <input type="text" className="border-none rounded-lg" placeholder=""
+                      <input type="text" className="border-none rounded-lg"
+                        placeholder="inputkan nama penanggung jawab"
                         value={penanggungJawab}
                         onChange={(event) => setPenanggungJawab(event.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -104,12 +126,13 @@ const TambahRencana = (props) => {
                     <textarea className="w-full border-none rounded-lg" rows="4"
                       value={deskripsi}
                       onChange={(event) => setDeskripsi(event.target.value)}
+                      required
                     ></textarea>
                   </div>
                   <div className="flex">
-                    <button className="bg-slate-100 w-full rounded-lg px-4 py-3" onClick={() => submitData()}>Tambah Kegiatan</button>
+                    <button className="bg-slate-100 w-full rounded-lg px-4 py-3">Tambah Kegiatan</button>
                   </div>
-                </div>
+                </form>
               </div>
 
               {/* {props.rencana.map((ren, index) => <p key={index}>{ren.judul}</p>)}

@@ -10,9 +10,6 @@ import Sidebar from "@/Components/Sidebar"
 const Users = (props) => {
   const { warna } = useSelector(state => state.warna)
   const [color, setColor] = useState('white')
-  const [name, setName] = useState('')
-  const [nis, setNis] = useState('')
-  const [role, setRole] = useState('')
 
   const destroyUser = (id) => {
     confirm('ingin menghapus user ini?')
@@ -40,6 +37,8 @@ const Users = (props) => {
                         <th></th>
                         <th>Nama User</th>
                         <th>Role</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -50,6 +49,8 @@ const Users = (props) => {
                             <th>{index + 1}</th>
                             <td>{user.name}</td>
                             <td>{user.role}</td>
+                            <td>{user.kelas}</td>
+                            <td>{user.jurusan}</td>
                             <td>
                               <div>
                                 <Link href={`/dashboard/users/${user.id}`} >edit</Link>

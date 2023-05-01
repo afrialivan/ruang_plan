@@ -15,13 +15,13 @@ const Calendar = (props) => {
     return String(eventGuid++)
   }
 
-  // console.log(props.events);
+  // console.log(props.role.user.role);
 
 
 
   let kegiatan = props.events.map(plan => {
-    if (plan.status_rencana !== 'belum_konfirmasi') {
-      // console.log(plan);
+    // console.log(props.role.user.role == 'guru');
+    if (plan.status_rencana !== 'belum_konfirmasi' && plan.kategori === props.role.user.role) {
       return (
         {
           id: createEventId(),
@@ -31,6 +31,27 @@ const Calendar = (props) => {
         }
       )
     }
+    if (plan.status_rencana !== 'belum_konfirmasi' && plan.kategori === 'semua' ) {
+      return (
+        {
+          id: createEventId(),
+          title: plan.judul,
+          start: plan.mulai,
+          end: plan.selesai
+        }
+      )
+    }
+    if (plan.status_rencana !== 'belum_konfirmasi' && props.role.user.role === 'admin' ) {
+      return (
+        {
+          id: createEventId(),
+          title: plan.judul,
+          start: plan.mulai,
+          end: plan.selesai
+        }
+      )
+    }
+    
     else {
       return (
         {

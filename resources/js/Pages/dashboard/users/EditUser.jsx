@@ -13,11 +13,14 @@ const EditUser = (props) => {
   const [name, setName] = useState(props.user.name)
   const [nis, setNis] = useState(props.user.nis)
   const [role, setRole] = useState(props.user.role)
+  const [kelas, setKelas] = useState(props.user.kelas)
+  const [jurusan, setJurusan] = useState(props.user.jurusan)
+  const [kelamin, setKelamin] = useState(props.user.jenis_kelamin)
   const id = props.user.id
 
   const submitEdit = () => {
     const data = {
-      id, name, nis, role
+      id, name, nis, role, kelas, jurusan, kelamin
     }
 
     Inertia.post(`/dashboard/users/${props.user.id}`, data)
@@ -59,13 +62,43 @@ const EditUser = (props) => {
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row gap-5">
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col md:w-1/2">
                       <label htmlFor="">Role</label>
-                      <select className="border-none rounded-lg" value={role} onChange={(e) => setRole(e.target.value)} >
+                      <select className="border-none rounded-lg" onChange={(e) => setRole(e.target.value)} value={role} >
                         <option>--</option>
                         <option value="siswa">Siswa</option>
                         <option value="guru">Guru</option>
                         <option value="admin">Admin</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Jurusan</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setJurusan(e.target.value)} value={jurusan} >
+                        <option value="-">--</option>
+                        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                        <option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option>
+                        <option value="Teknik Jaringan Akses">Teknik Jaringan Akses</option>
+                        <option value="Teknik Telekomunikasi">Teknik Telekomunikasi</option>
+                        <option value="Pariwisata">Pariwisata</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Kelas</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setKelas(e.target.value)} value={kelas} >
+                        <option value="-">--</option>
+                        <option value="10">Kelas 10</option>
+                        <option value="11">Kelas 11</option>
+                        <option value="12">Kelas 12</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Jenis Kelamin</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setKelamin(e.target.value)} value={kelamin} >
+                        <option value="-">--</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-laki">Laki-laki</option>
                       </select>
                     </div>
                   </div>

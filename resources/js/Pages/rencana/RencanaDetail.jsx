@@ -17,7 +17,7 @@ const RencanaDetail = (props) => {
 
   return (
     <>
-      <Head title={props.title} />
+      <Head title={rencana.judul} />
       <div data-theme={warna} className="flex flex-col">
         <div className="flex flex-1">
           <Sidebar color={color} title={props.title} role={props.auth.user.role} />

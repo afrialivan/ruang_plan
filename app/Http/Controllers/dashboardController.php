@@ -34,15 +34,19 @@ class dashboardController extends Controller
             'users' => User::latest()->get()
         ]);
     }
-    
+
     public function store_users(Request $request)
     {
         $data = $request->except('_token');
         foreach ($data as $key => $value) {
+            // dd($value);
             User::create([
                 'name' => $value['nama'],
                 'nis' => $value['nis'],
                 'role' => $value['role'],
+                'jurusan' => $value['jurusan'],
+                'kelas' => $value['kelas'],
+                'jenis_kelamin' => $value['jenis_kelamin'],
                 'password' => bcrypt($value['password']),
             ]);
         }
@@ -54,10 +58,13 @@ class dashboardController extends Controller
             'name' => $request->nama,
             'nis' => $request->nis,
             'role' => $request->role,
+            'jurusan' => $request->jurusan,
+            'kelas' => $request->kelas,
+            'jenis_kelamin' => $request->kelamin,
             'password' => bcrypt($request->password),
         ]);
     }
-    
+
     public function edit_user($id)
     {
         $data = User::where('id', $id)->get();
@@ -73,6 +80,9 @@ class dashboardController extends Controller
             'name' => $request->name,
             'nis' => $request->nis,
             'role' => $request->role,
+            'jurusan' => $request->jurusan,
+            'kelas' => $request->kelas,
+            'jenis_kelamin' => $request->kelamin,
             'password' => $data[0]->password
         ]);
 
@@ -83,7 +93,7 @@ class dashboardController extends Controller
     {
         User::destroy($id);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */

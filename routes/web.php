@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/rencana/{id}', [rencanaController::class, 'show']);
     Route::get('/ruangan', [ruanganController::class, 'index']);
     Route::get('/profil', [ProfileController::class, 'index']);
+    Route::post('/profil', [ProfileController::class, 'update']);
 });
 
 // Route::get('/dashboard/home', [dashboardController::class, 'index']);

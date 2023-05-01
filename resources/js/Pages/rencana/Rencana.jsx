@@ -25,41 +25,89 @@ const Rencana = (props) => {
                 <h2 className={`font-bold text-3xl md:mb-3 text-${color}`}>Rencana</h2>
                 <div className="flex md:flex-col flex-col-reverse">
                   <div className="flex gap-4 flex-col md:flex-row md:mb-4">
-                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-6 py-5 flex flex-col gap-2 overflow-y-scroll">
-                      <h2 className="font-bold text-2xl text-primary">Akan Datang</h2>
-                      {props.rencana.map(rencana => {
-                        if (rencana.status_rencana === 'belum') {
-                          return (
-                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
-                              <Plan plan={rencana} />
-                            </Link>
-                          )
-                        }
-                      })}
+                    <div className="card md:w-1/3 bg-secondary h-80 md:h-[650px] overflow-hidden">
+                      <div className="flex flex-col gap-2 overflow-y-scroll px-6 py-5 h-full">
+                        <h2 className="font-bold text-2xl text-primary">Akan Datang</h2>
+                        {props.rencana.map(rencana => {
+                          if (rencana.status_rencana === 'belum' && rencana.kategori === props.auth.user.role) {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'belum' && rencana.kategori === 'semua') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'belum' && props.auth.user.role === 'admin') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                        })}
+                      </div>
                     </div>
-                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-6 py-5 flex flex-col gap-2 overflow-y-scroll">
-                      <h2 className="font-bold text-2xl text-primary">Sedang Berlangsung</h2>
-                      {props.rencana.map(rencana => {
-                        if (rencana.status_rencana === 'proses') {
-                          return (
-                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
-                              <Plan plan={rencana} />
-                            </Link>
-                          )
-                        }
-                      })}
+                    <div className="card md:w-1/3 bg-secondary h-80 md:h-[650px] overflow-hidden">
+                      <div className="flex flex-col gap-2 overflow-y-scroll px-6 py-5 h-full">
+                        <h2 className="font-bold text-2xl text-primary">Sedang Berlangsung</h2>
+                        {props.rencana.map(rencana => {
+                          if (rencana.status_rencana === 'proses' && rencana.kategori === props.auth.user.role) {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'proses' && rencana.kategori === 'semua') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'proses' && props.auth.user.role === 'admin') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                        })}
+                      </div>
                     </div>
-                    <div className="card md:w-1/3 bg-secondary md:h-[650px] px-6 py-5 flex flex-col gap-2 overflow-y-scroll">
-                      <h2 className="font-bold text-2xl text-primary">Telah Selesai</h2>
-                      {props.rencana.map(rencana => {
-                        if (rencana.status_rencana === 'selesai') {
-                          return (
-                            <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
-                              <Plan plan={rencana} />
-                            </Link>
-                          )
-                        }
-                      })}
+                    <div className="card md:w-1/3 bg-secondary h-80 md:h-[650px] overflow-hidden">
+                      <div className="flex flex-col gap-2 overflow-y-scroll px-6 py-5 h-full">
+                        <h2 className="font-bold text-2xl text-primary">Telah Selesai</h2>
+                        {props.rencana.map(rencana => {
+                          if (rencana.status_rencana === 'selesai' && rencana.kategori === props.auth.user.role) {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'selesai' && rencana.kategori === 'semua') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                          if (rencana.status_rencana === 'selesai' && props.auth.user.role === 'admin') {
+                            return (
+                              <Link key={rencana.id} href={`/rencana/${rencana.id}`}>
+                                <Plan plan={rencana} />
+                              </Link>
+                            )
+                          }
+                        })}
+                      </div>
                     </div>
                   </div>
                   <div className="flex md:justify-end mb-2 md:mb-0">
@@ -74,33 +122,6 @@ const Rencana = (props) => {
         <MobileNav color={color} title={props.title} />
       </div>
     </>
-    // <div>
-    //   <Head title={props.title} />
-    //   <div data-theme={mode} className="h-100">
-    //     <div className="grid grid-cols-12">
-    //       <div className="col-start-1 row-span-1">
-    //         <Sidebar color={color} title={props.title} />
-    //       </div>
-    //       <div className="xl:ml-[1%] lg:ml-[4%] md:ml-[10%] lg:-mr-[6%] md:-mr-[4%]" style={{ gridColumn: '2/12' }}>
-    //         <Navbar darkMode={() => darkMode()} />
-    //         <div className="py-10">
-    //           <h4>title: {props.title} </h4>
-    //           <div>
-    //             <Link href="/rencana/tambah-rencana">
-    //               Tambah Rencana
-    //             </Link>
-    //           </div>
-    //           <div>
-    //             <Link href="/tes">
-    //               tes
-    //             </Link>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <MobileNav color={color} title={props.title} />
-    //   </div>
-    // </div>
   )
 }
 

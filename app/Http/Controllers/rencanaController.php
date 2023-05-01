@@ -31,10 +31,15 @@ class rencanaController extends Controller
      */
     public function create()
     {
+        $data = DB::table('rencanas')
+            ->leftJoin('ruangans', 'ruangans.id', '=', 'rencanas.id_ruangan')
+            ->select('rencanas.*', 'ruangans.nama_ruangan', 'ruangans.status_ruangan')
+            ->latest()
+            ->get();
         return Inertia::render('rencana/TambahRencana', [
             'title' => 'Rencana',
             'ruangan' => Ruangan::all(),
-            'rencana' => Rencana::latest()->get()
+            'rencana' => $data
         ]);
     }
 
@@ -53,6 +58,7 @@ class rencanaController extends Controller
             'id_user' => auth()->user()->id,
             'id_ruangan' => $request->ruangan
         ]);
+        // dd($request);
     }
 
     /**

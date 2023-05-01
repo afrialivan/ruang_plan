@@ -38,7 +38,7 @@ const Navbar = (props) => {
                   <path d="M18.5 18.4999L22 22M21 11.5C21 6.24997 16.7463 2 11.5 2C6.25376 2 2 6.24997 2 11.5C2 16.75 6.25376 20.9999 11.5 20.9999C16.7463 20.9999 21 16.75 21 11.5Z" stroke="#EFF5F5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <input className="bg-primary rounded-2xl pl-12 font-bold text-white" placeholder="Cari" type="text" />
+              <input className="bg-primary rounded-2xl pl-12 font-bold text-white placeholder:text-white" placeholder="Cari" type="text" />
             </div>
             <div className="bg-primary rounded-full p-2">
               <svg height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">

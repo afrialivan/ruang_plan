@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('nis');
+            $table->string('kelas');
+            $table->string('jurusan');
+            $table->string('jenis_kelamin');
             $table->enum('role', ['siswa', 'guru', 'admin'])->default('siswa');
             $table->text('foto')->nullable();
             $table->string('password');

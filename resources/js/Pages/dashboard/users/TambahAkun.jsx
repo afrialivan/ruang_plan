@@ -16,6 +16,9 @@ const TambahAkun = (props) => {
   const [nama, setNama] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
+  const [kelas, setKelas] = useState('')
+  const [jurusan, setJurusan] = useState('')
+  const [kelamin, setKelamin] = useState('')
 
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
@@ -54,7 +57,7 @@ const TambahAkun = (props) => {
   }
 
   const buatAkun = () => {
-    const data = { nama, nis, role, password }
+    const data = { nama, nis, role, password, kelamin, jurusan, kelas }
     Inertia.post('/dashboard/users/tambah-user', data)
   }
 
@@ -102,6 +105,38 @@ const TambahAkun = (props) => {
                       </select>
                     </div>
                     <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Jurusan</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setJurusan(e.target.value)} >
+                        <option value="-">--</option>
+                        <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                        <option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option>
+                        <option value="Teknik Jaringan Akses">Teknik Jaringan Akses</option>
+                        <option value="Teknik Telekomunikasi">Teknik Telekomunikasi</option>
+                        <option value="Pariwisata">Pariwisata</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Kelas</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setKelas(e.target.value)} >
+                        <option value="-">--</option>
+                        <option value="10">Kelas 10</option>
+                        <option value="11">Kelas 11</option>
+                        <option value="12">Kelas 12</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col md:w-1/2">
+                      <label htmlFor="">Jenis Kelamin</label>
+                      <select className="border-none rounded-lg" onChange={(e) => setKelamin(e.target.value)} >
+                        <option value="-">--</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="flex flex-col md:w-full">
                       <label htmlFor="">Password</label>
                       <input type="password" className="border-none rounded-lg" placeholder="inputkan password user"
                         value={password}
@@ -131,8 +166,11 @@ const TambahAkun = (props) => {
                       <tr>
                         <th></th>
                         <th>Nama User</th>
-                        <th>NIS User</th>
                         <th>Role User</th>
+                        <th>NIS User</th>
+                        <th>Kelas User</th>
+                        <th>Jurusan User</th>
+                        <th>Jenis Kelamin User</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -141,8 +179,11 @@ const TambahAkun = (props) => {
                           <tr key={index}>
                             <th>{index}</th>
                             <td>{item.nama}</td>
-                            <td>{item.nis}</td>
                             <td>{item.role}</td>
+                            <td>{item.nis}</td>
+                            <td>{item.kelas}</td>
+                            <td>{item.jurusan}</td>
+                            <td>{item.jenis_kelamin}</td>
                           </tr>
                         )
                       })}
